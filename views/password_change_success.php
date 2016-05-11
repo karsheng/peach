@@ -1,1 +1,0 @@
-<h1>Password change successful!</h1>

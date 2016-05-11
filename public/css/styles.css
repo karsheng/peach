@@ -15,6 +15,22 @@
     text-align: center;
 }
 
+img, .mid-sized-logo
+{
+    
+    width: 30%;
+    height: 30%;
+    
+}
+
+img, .small-sized-logo
+{
+    
+    width: 10%;
+    height: 10%;
+    
+}
+
 #top
 {
     /* surround with whitespace */
