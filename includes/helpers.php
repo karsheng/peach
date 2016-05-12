@@ -42,7 +42,12 @@
         // expire cookie
         if (!empty($_COOKIE[session_name()]))
         {
-            setcookie(session_name(), "", time() - 42000);
+            echo("not empty");
+            setcookie(session_name(), "", time() - 60*60*24*365);
+        }
+        else
+        {
+            echo("empty");
         }
 
         // destroy session

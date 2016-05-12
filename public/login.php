@@ -37,9 +37,18 @@
             {
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["id"] = $row["id"];
+                
+                
+                if ($_POST['stayLoggedIn'] == '1') 
+                {
+                    
+                    
+                    setcookie("id", mysqli_insert_id($link), time() + 60*60*24*365);
+    
+                } 
 
                 // redirect to portfolio
-                redirect("/");
+                redirect("/public/");
             }
         }
 
