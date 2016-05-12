@@ -66,5 +66,8 @@ table, th
 {
     text-align : center;
 }
-
+#upload-zone
+{
+    border-style: dotted;
+}
 
