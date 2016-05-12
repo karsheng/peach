@@ -24,13 +24,13 @@
         }
 
         // query database for user
-        $rows = CS50::query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
+        $query = "SELECT * FROM `users` WHERE username = '".mysqli_real_escape_string($link, $_POST['username'])."'";
+        $results = mysqli_query($link, $query);            
+        $row = mysqli_fetch_array($results);
 
         // if we found user, check password
-        if (count($rows) == 1)
+        if (isset($row))
         {
-            // first (and only) row
-            $row = $rows[0];
 
             // compare hash of user's input against hash that's in database
             if (password_verify($_POST["password"], $row["hash"]))
