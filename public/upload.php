@@ -13,29 +13,21 @@
     // else if user reached page via POST (as by submitting a form via POST)
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        // TODO
-        if (empty($_POST["symbol"]))
+        $ds = DIRECTORY_SEPARATOR;
+     
+        $storeFolder = 'img/';
+     
+        if (!empty($_FILES)) 
         {
-            apologize("Please provide a valid symbol.");
+         
+            $tempFile = $_FILES['file']['tmp_name'];
+              
+            $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
+             
+            $targetFile =  $targetPath. $_FILES['file']['name'];
+         
+            move_uploaded_file($tempFile,$targetFile);
+         
         }
-        else
-        {
-            $rows = CS50::query("SELECT * FROM portfolios WHERE user_id = ?", $_SESSION["id"]);
-
-            $stock = lookup($_POST["symbol"]);
-            if ($stock)
-            {
-                render("quote_result.php", ["title" => "Quote", "name" => $stock["name"], "symbol" => strtoupper($_POST["symbol"]), "price" => number_format($stock["price"], 2, '.', '')]);
-
-            }
-            else
-            {
-                apologize("Invalid symbol. Please re-enter a valid symbol.");
-            }
-            // else render result
-            //render("quote_result.php", ["title" => "Quote"]);
-        }
-
     }
-
-?>
+?> 

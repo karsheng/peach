@@ -22,6 +22,11 @@
         <script src="js/bootstrap.min.js"></script>
 
         <script src="js/scripts.js"></script>
+        
+        <!-- http://dropzonejs.com/ -->
+        <script src="dropzone-4.3.0/dist/dropzone.js"></script>
+        
+        <link rel="stylesheet" href="dropzone-4.3.0/dist/dropzone.css">        
 
     </head>
 
