@@ -1,24 +1,140 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 3 Lightbox</title>
 
-<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dropzone simple example</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.css" rel="stylesheet">
 
+        <style type="text/css">
+            /* i like padding - you can ignore this css. see the actual css / less files in the repository for styling the gallery navigation */
+            div.row > div > div.row {
+                margin-bottom: 15px;
+            }
+            body {
+                padding-bottom: 50px;
+            }
+            div.top-header {
+                margin-bottom:100px;
+            }
+            h3.page-header {
+                margin-top: 50px;
+            }
+            figure {
+                position: relative;
+            }
+            figure figcaption {
+                font-size: 22px;
+                color: #fff;
+                text-decoration: none;
+                bottom: 10px;
+                right: 20px;
+                position: absolute;
+                background-color: #000;
+            }
+			code {
+				white-space: pre-wrap;       /* css-3 */
+				white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+				white-space: -pre-wrap;      /* Opera 4-6 */
+				white-space: -o-pre-wrap;    /* Opera 7 */
+				word-wrap: break-word;       /* Internet Explorer 5.5+ */
+			}
+        </style>
 
-<!--
-  DO NOT SIMPLY COPY THOSE LINES. Download the JS and CSS files from the
-  latest release (https://github.com/enyo/dropzone/releases/latest), and
-  host them yourself!
--->
-<script src="dropzone-4.3.0/dist/dropzone.js"></script>
-<link rel="stylesheet" href="dropzone-4.3.0/dist/dropzone.css">
-  <script src="js/scripts.js"></script>
+        <script src="//code.jquery.com/jquery.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.js"></script>
 
-<p>
-  This is the most minimal example of Dropzone. The upload in this example
-  doesn't work, because there is no actual server to handle the file upload.
-</p>
+        <script type="text/javascript">
+            $(document).ready(function ($) {
+                // delegate calls to data-toggle="lightbox"
+                $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function(event) {
+                    event.preventDefault();
+                    return $(this).ekkoLightbox({
+                        onShown: function() {
+                            if (window.console) {
+                                return console.log('Checking our the events huh?');
+                            }
+                        },
+						onNavigate: function(direction, itemIndex) {
+                            if (window.console) {
+                                return console.log('Navigating '+direction+'. Current item: '+itemIndex);
+                            }
+						}
+                    });
+                });
+                //Programatically call
+                $('#open-image').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+                $('#open-youtube').click(function (e) {
+                    e.preventDefault();
+                    $(this).ekkoLightbox();
+                });
+				// navigateTo
+                $(document).delegate('*[data-gallery="navigateTo"]', 'click', function(event) {
+                    event.preventDefault();
+                    var lb;
+                    return $(this).ekkoLightbox({
+                        onShown: function() {
+                            lb = this;
+							$(lb.modal_content).on('click', '.modal-footer a', function(e) {
+								e.preventDefault();
+								lb.navigateTo(2);
+							});
+                        }
+                    });
+                });
+            });
+        </script>        
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
 
-<!-- Change /upload-target to your upload address -->
-<form action= "ul.php" class="dropzone">
-</form>
+                    <h3 class="page-header" id="image-gallery">Example #2: Gallery of Images</h3>
+                    <p>By default, gallery images must be wrapped in a tag (probably <code>&lt;div&gt;</code>) - which doesn't have the class <code>.row</code>. This is so you can create columns/rows.</p>
+                    <p>A custom selector for the parent can be used, see <a href="#wrappers">example #11</a>. Note how the final image is not in the gallery intentionally.</p>
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="row">
+                                <a href="dresses/1.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="People walking down stairs" class="col-sm-4">
+                                    <img src="dresses/1.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://41.media.tumblr.com/838b44224e39c30cd43490deb11b919d/tumblr_mrn3dc10Wa1r1thfzo1_1280.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="Man getting wet" class="col-sm-4">
+                                    <img src="//41.media.tumblr.com/838b44224e39c30cd43490deb11b919d/tumblr_mrn3dc10Wa1r1thfzo1_1280.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://41.media.tumblr.com/e06a3513b0b36843f54bee99aeac689a/tumblr_mrn3dc10Wa1r1thfzo2_1280.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="Someone lost their dress" class="col-sm-4">
+                                    <img src="//41.media.tumblr.com/e06a3513b0b36843f54bee99aeac689a/tumblr_mrn3dc10Wa1r1thfzo2_1280.jpg" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="http://41.media.tumblr.com/9d3e6a9c89a856a2ad0be3ab4ca598b2/tumblr_mrn3dc10Wa1r1thfzo4_1280.jpg" data-toggle="lightbox" data-gallery="multiimages" data-footer="Big ass waterfall- using footer instead of title" class="col-sm-4">
+                                    <img src="//41.media.tumblr.com/9d3e6a9c89a856a2ad0be3ab4ca598b2/tumblr_mrn3dc10Wa1r1thfzo4_1280.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://41.media.tumblr.com/9d3e6a9c89a856a2ad0be3ab4ca598b2/tumblr_mrn3dc10Wa1r1thfzo4_1280.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="Cool bottle" data-footer="Now fill it with whiskey" class="col-sm-4">
+                                    <img src="//41.media.tumblr.com/9d3e6a9c89a856a2ad0be3ab4ca598b2/tumblr_mrn3dc10Wa1r1thfzo4_1280.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://36.media.tumblr.com/de356cd6570d7c26e73979467f296f67/tumblr_mrn3dc10Wa1r1thfzo6_1280.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="something" data-footer="something" class="col-sm-4">
+                                    <img src="//36.media.tumblr.com/de356cd6570d7c26e73979467f296f67/tumblr_mrn3dc10Wa1r1thfzo6_1280.jpg" class="img-responsive">
+                                </a>
+                            </div>
+                                <a href="dresses/2.jpg" data-toggle="lightbox" data-gallery="multiimages" data-title="People walking down stairs" class="col-sm-4">
+                                </a>
+                                <a href="dresses/3.jpeg" data-toggle="lightbox" data-gallery="multiimages" data-title="People walking down stairs" class="col-sm-4">
+                                </a>
+                                <a href="dresses/4.jpeg" data-toggle="lightbox" data-gallery="multiimages" data-title="People walking down stairs" class="col-sm-4">
+                                </a>
+                            <p>asdhakjshdkasjhd</p>    
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
