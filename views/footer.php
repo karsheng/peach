@@ -1,7 +1,7 @@
             </div>
 
             <div id="bottom">
-                Brought to you by the Peach</a>.
+                Brought to you by Peach</a>.
             </div>
 
         </div>

@@ -29,7 +29,7 @@
     {
         if (empty($_SESSION["id"]))
         {
-            redirect("/public/consultant_login.php");
+            redirect("/public/login.php");
         }
     }
 
