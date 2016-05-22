@@ -50,7 +50,7 @@
 
 	      </div>
 	      <div class="modal-footer">
-	         <span style="float:center" class="glyphicon glyphicon-heart" value='0' aria-hidden="true"></span>
+	          <a role='button'><span class='glyphicon glyphicon-heart' value='0'></span></a>
 	      </div>
 	    </div>
 	  </div>

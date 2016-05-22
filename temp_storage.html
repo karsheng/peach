@@ -48,3 +48,13 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
+
+
+
+                $("#carousel-indicators-custom").html(
+                    "<li data-target='#myCarousel' data-slide-to='"+ i + "'></li>"
+                );
+                
+                $("#carousel-body-custom").html(
+                    "<div class='item active'><img src='dresses/"+data[i]['img_id']+".jpeg></div>"
+                );

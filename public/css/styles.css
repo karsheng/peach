@@ -218,8 +218,8 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
-  width: 100%;
-  height: 80%;
+  width: 70%;
+  height: 50%;
   
 }
 .dress-container img {
@@ -229,7 +229,6 @@ body {
 
 .glyphicon.glyphicon-heart {
     font-size: 20px;
-    color:white;
     text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
 }
 
