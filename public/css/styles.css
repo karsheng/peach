@@ -218,8 +218,8 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
-  width: 70%;
-  height: 50%;
+  width: 100%;
+  height: 70%;
   
 }
 .dress-container img {
@@ -227,13 +227,36 @@ body {
     min-height:100%
 }
 
-.glyphicon.glyphicon-heart {
+.user-not-favourited {
     font-size: 20px;
+    color: white;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+}
+
+.user-favourited {
+    font-size: 20px;
+    color: red;
     text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
 }
 
-.carousel-inner{
-    background-color: #FFFFFF;
+.user-added-cart {
+    font-size: 20px;
+    color: #ffab00;
+    text-shadow: -1px 0 #ffab00, 0 1px #ffab00, 1px 0 #ffab00, 0 -1px #ffab00;
 }
 
+.user-not-added-cart {
+    font-size: 20px;
+    color: white;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+}
 
+#favourite {
+    font-size: 20px;
+
+}
+
+#cart {
+    font-size: 20px;
+
+}

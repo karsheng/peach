@@ -1,60 +1,223 @@
- <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval = "false">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Header</h4>
         </div>
-        <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+        <div class="modal-body">
+        <!-- Carousel -->  
+        <div id="myCarousel" class="carousel slide" data-interval = "false" data-ride="carousel" style = "float:left; height:600px; width: 80%; margin: 0px 0px 20px 0px;">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+        
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="img_chania.jpg" alt="Chania" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_chania2.jpg" alt="Chania" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_flower.jpg" alt="Flower" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_flower2.jpg" alt="Flower" style="height:600px;">
             </div>
           </div>
+        
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+          <!-- thumbnails -->          
+        <div style="height:600px; width:20%; float:right;">  
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
             </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div> 
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+
+        </div>  
+          <!-- tabs -->          
+          <div id="exTab2" class="container"> 
+            <ul class="nav nav-tabs">
+           <li class="active">
+                <a  href="#1" data-toggle="tab">Overview</a>
+           </li>
+           <li><a href="#2" data-toggle="tab">Without clearfix</a>
+           </li>
+           <li><a href="#3" data-toggle="tab">Solution</a>
+           </li>
+          </ul>
+
+         <div class="tab-content ">
+           <div class="tab-pane active" id="1">
+                <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
           </div>
+          <div class="tab-pane" id="2">
+                <h3>Notice the gap between the content and tab after applying a background color</h3>
+          </div>
+              <div class="tab-pane" id="3">
+                <h3>add clearfix to tab-content (see the css)</h3>
+          </div>
+         </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+      
+    </div>
+
+  </div>
+  <!-- Modal -->
+  
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+        <!-- Carousel -->  
+        <div id="myCarousel" class="carousel slide" data-interval = "false" data-ride="carousel" style = "float:left; height:600px; width: 80%; margin: 0px 0px 20px 0px;">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+        
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="img_chania.jpg" alt="Chania" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_chania2.jpg" alt="Chania" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_flower.jpg" alt="Flower" style="height:600px;">
+            </div>
+        
+            <div class="item">
+              <img src="img_flower2.jpg" alt="Flower" style="height:600px;">
+            </div>
+          </div>
+        
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+          <!-- thumbnails -->          
+        <div style="height:600px; width:20%; float:right;">  
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div> 
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+            <div>
+              <img style="margin:0% 0% 12% 30%; height:100px; width:50%;" src="img_chania.jpg" alt="Chania">
+            </div>
+
+        </div>  
+          <!-- tabs -->          
+          <div id="exTab2" class="container"> 
+            <ul class="nav nav-tabs">
+           <li class="active">
+                <a  href="#1" data-toggle="tab">Overview</a>
+           </li>
+           <li><a href="#2" data-toggle="tab">Without clearfix</a>
+           </li>
+           <li><a href="#3" data-toggle="tab">Solution</a>
+           </li>
+          </ul>
+
+         <div class="tab-content ">
+           <div class="tab-pane active" id="1">
+                <h3>Standard tab panel created on bootstrap using nav-tabs</h3>
+          </div>
+          <div class="tab-pane" id="2">
+                <h3>Notice the gap between the content and tab after applying a background color</h3>
+          </div>
+              <div class="tab-pane" id="3">
+                <h3>add clearfix to tab-content (see the css)</h3>
+          </div>
+         </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  </div>  
 
 
-
-                $("#carousel-indicators-custom").html(
-                    "<li data-target='#myCarousel' data-slide-to='"+ i + "'></li>"
-                );
-                
-                $("#carousel-body-custom").html(
-                    "<div class='item active'><img src='dresses/"+data[i]['img_id']+".jpeg></div>"
-                );
+</body>
+</html>

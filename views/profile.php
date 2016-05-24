@@ -19,39 +19,8 @@
         
         </tbody>
 </table>
+
 	<!-- Modal -->
 	<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-	      </div>
-	      <div class="modal-body">
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide carousel-sync" data-ride="carousel" data-interval="false">
-      <!-- Indicators -->
-      <ol class="carousel-indicators" id="carousel-indicators-custom">
-      </ol>
-      <div class="carousel-inner" id="carousel-body-custom" role="listbox">
-
-
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-
-	      </div>
-	      <div class="modal-footer">
-	          <a role='button'><span class='glyphicon glyphicon-heart' value='0'></span></a>
-	      </div>
-	    </div>
-	  </div>
+	  
 	</div>

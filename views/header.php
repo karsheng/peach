@@ -43,9 +43,10 @@
                 <?php if (!empty($_SESSION["id"])): ?>
 
                     <ul class="nav nav-pills">
-                        <li><a href="recommendations.php">Recommendations</a></li>
-                        <li><a href="cart.php">Cart</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="profile.php">Profile</a></li>
+                        <li><a href="favourite.php" role="button"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
+                        <li><a href="cart.php" role="button"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span></a></li>
                         <li><a href="logout.php"><strong>Log Out</strong></a></li>
                     </ul>
                 <?php endif ?>
