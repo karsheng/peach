@@ -29,9 +29,10 @@
         }
     }
     
+    
     // output places as JSON (pretty-printed for debugging convenience)
     header("Content-type: application/json");
-    print(json_encode($recs, JSON_PRETTY_PRINT));
-
+    print(json_encode($recs,JSON_PRETTY_PRINT));
+    
 
 ?>

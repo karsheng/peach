@@ -11,7 +11,7 @@
             <tr>
                 <td><?="<img class = 'img-circle' src = consultant_photos/".$con['name']."_1.jpeg >"?></td>
                 <td><?= $con['name']?></td>
-                <td><button value = "<?= $con['id']?>" class="btn btn-warning btn-view" data-toggle="modal" data-target="#recModal">View</button></td>
+                <td><button name = '<?= $con['name']?>' value = "<?= $con['id']?>" class="btn btn-warning btn-view" data-toggle="modal" data-target="#recModal">View</button></td>
             </tr>
         
         <?php endforeach ?>
@@ -19,7 +19,7 @@
         
         </tbody>
 </table>
-
+<img class="img-circle" src="consultant_photos/karsheng_1.jpeg">
 	<!-- Modal -->
 	<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  

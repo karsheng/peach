@@ -118,7 +118,7 @@ body {
 /* Carousel base class */
 .carousel {
   height: 500px;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -227,7 +227,7 @@ body {
     min-height:100%
 }
 
-.user-not-favourited {
+.user-fav {
     font-size: 20px;
     color: white;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
@@ -235,17 +235,17 @@ body {
 
 .user-favourited {
     font-size: 20px;
-    color: red;
-    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+    color: #ED4956;
+    text-shadow: -1px 0 #ED4956, 0 1px #ED4956, 1px 0 #ED4956, 0 -1px #ED4956;
 }
 
 .user-added-cart {
     font-size: 20px;
     color: #ffab00;
-    text-shadow: -1px 0 #ffab00, 0 1px #ffab00, 1px 0 #ffab00, 0 -1px #ffab00;
+    text-shadow: -1px 0 #FFCC6F, 0 1px #FFCC6F, 1px 0 #FFCC6F, 0 -1px #FFCC6F;
 }
 
-.user-not-added-cart {
+.user-cart {
     font-size: 20px;
     color: white;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
@@ -260,3 +260,14 @@ body {
     font-size: 20px;
 
 }
+
+.tab-content>.tab-pane{
+    display:block;
+    visibility:hidden;
+    height:40px;
+}
+
+.tab-content>.active{
+    visibility:visible;
+}
+

@@ -1,34 +1,20 @@
 /**
  * scripts.js
  *
- * Computer Science 50
- * Problem Set 7
- *
  * Global JavaScript, if any.
  */
  
- //global variables
-var act_con_id; //viewing con_id.
-var favouriteByCon = []; //stores recommendations.fav value for viewing con_id.
-var recs = []; //stores recommendations.id value for viewing con_id.
-var currentSlide; //active data-slide-to value. This correspond to location in favourtieByCon[], recs[], addedToCart[]
-var cartByCon = []; //stores boolean value (0 or 1 for recommendations.cart) for viewing con_id.
-// var cart[] (created while loading cart.php) stores all recommendations.id that are added to cart i.e. recommendations. cart = '1'
-// var favourite[] (created while loading favourite.php) stores all recommendations.id that are favourited i.e. recommendations.fav = '1'
-
-
 $(document).ready(function(){
     
 //show recommendations modal    
     $(".btn-view").click(function(){
         
         
-        act_con_id = $(this).attr('value'); //currently viewing con_id
-        //re-initialise variables
-        favouriteByCon = []; 
-        cartByCon = [];
-        recs = [];
-
+        $("#recModal").html(""); //clear content in modal to avoid seeing previously loaded content.
+        
+        var act_con_id = $(this).attr('value'); //currently viewing con_id
+        var con_name = $(this).attr('name'); //currently viewing con_name
+        
         var parameters = {
             
             con_id: act_con_id
@@ -38,10 +24,10 @@ $(document).ready(function(){
         $.getJSON("recs.php", parameters)
         .done(function(data, textStatus, jqXHR) {
             
-        var contentString = "";    
+            //var d = ((data.length == 1) ? :d);
+            var contentString = "";    
             for (var i = 0; i < data.length; i++)
             {
-                
                 var car_id = "car-"+ i;
                 var leftCtrlContentString = "";
                 var rightCtrlContentString = "";
@@ -60,7 +46,7 @@ $(document).ready(function(){
                         var active = ((j == 0) ? "active" : "");
                         carIndContentString += "<li data-target='#" + car_id + "' data-slide-to='"+ j +"' class='"+ active +"'></li>";
                         carInnerContentString += "<div class='item " + active + "'><img style='height:100%;' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
-                        tnContentString += "<div><img style='margin:0px 0px 15px 0px; height:85px; width: 60%;' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
+                        tnContentString += "<div><img name='"+car_id+"'class= 'tn' value = '" + j + "' style='margin:0px 0px 15px 0px; height:85px; width: 60%;' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
                     }
                 
                     for (var k = 0; k < 3; k++)
@@ -84,26 +70,27 @@ $(document).ready(function(){
                             
                         }
                         
-                        tabNavCS += "<li class='"+active+"'><a  href='#tab-" + i + "-"+ k +"' data-toggle='tab'><h4>"+tabTitle+"</h4></a></li>";
+                        tabNavCS += "<li class='"+active+"'><a  href='#tab-" + i + "-"+ k +"' data-toggle='tab'><h5>"+tabTitle+"</h5></a></li>";
                         tabConCS += "<div class='tab-pane " + active+"' id='tab-" + i + "-" + k + "'>"+tabCon+"</div>";
                     }
-                var fav = ((data[i]['fav'] == '0') ? "user-not-favourited" : "user-favourited");
-                var cart = ((data[i]['cart'] == '0') ? "user-not-added-cart" : "user-added-cart");
-                footCS = "<div class='modal-footer'><a role='button'><span class='glyphicon glyphicon-heart user-fav "+ fav +"' value= '" + data[i]['rec_id'] + "'></span></a><a role='button'><span class='glyphicon glyphicon-shopping-cart user-cart "+ cart +"' value= '" + data[i]['rec_id'] + "'></span></a></div>";   
-                tabCS = "<div id='tab-"+ i +"' class=''><ul class='nav nav-tabs'>" + tabNavCS + "</ul>" + "<div class='tab-content'>" + tabConCS + "</div></div>";
-                headerContentString = "<div class='modal-header'><h4 class='modal-title'>Consultant</h4></div>";
+                var fav = ((data[i]['fav'] == '0') ? "user-fav" : "user-favourited");
+                var cart = ((data[i]['cart'] == '0') ? "user-cart" : "user-added-cart");
+                footCS = "<div class='modal-footer'><a role='button'><span class='glyphicon hrt glyphicon-heart " + fav + "' value = '" + data[i]['rec_id'] + "'></span></a><a role='button'><span class='glyphicon cart glyphicon-shopping-cart " + cart + "' value = '" + data[i]['rec_id'] + "'></span></a></div>";   
+                tabCS = "<div id='tab-"+ i +"' class=''><ul class='nav nav-tabs small'>" + tabNavCS + "</ul>" + "<div class='tab-content'>" + tabConCS + "</div></div>";
+                headerContentString = "<div class='modal-header'><h4 class='modal-title'><div class='row'><div class='col-xs-3'><img class = 'img-circle' src = consultant_photos/"+con_name+"_1.jpeg></div><div class='col-xs-9'><p style='text-align:left;'>"+con_name+"</p></div></div></h4></div>";
                 carInnerContentString = "<div class='carousel-inner' role='listbox'>" + carInnerContentString + "</div>";
-                carIndContentString = "<ol class='carousel-indicators'>" + carIndContentString + "</ol>";
+                //carIndContentString = "<ol class='carousel-indicators'>" + carIndContentString + "</ol>";
                 leftCtrlContentString = "<a class='left carousel-control' href='#"+ car_id +"' role='button' data-slide='prev'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span><span class='sr-only'>Previous</span></a>";
                 rightCtrlContentString = "<a class='right carousel-control' href='#" + car_id + "' role='button' data-slide='next'><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span><span class='sr-only'>Next</span></a>";
                 
                 
-                carouselContentString = "<div id='" + car_id + "' class='carousel slide' data-interval = 'false' data-ride='carousel'>" + carIndContentString + carInnerContentString + leftCtrlContentString + rightCtrlContentString + "</div>";
+                carouselContentString = "<div id='" + car_id + "' class='carousel' data-interval = 'false' data-ride='carousel'>" + carInnerContentString + leftCtrlContentString + rightCtrlContentString + "</div>";
                 
-                contentString += "<div class='modal-dialog'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-xs-9'>"+ carouselContentString + "</div><div class='col-xs-3'>" + tnContentString +"</div></div>"+"<div class='row'>" + tabCS + "</div>" + footCS + "</div></div></div>";
+                contentString += "<div class='modal-dialog'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-xs-9'>"+ carouselContentString + "</div><div id='dress-tn' class='col-xs-3'>" + tnContentString +"</div></div><div class='row'><div class='col-xs-12'>"+ tabCS +"</div></div></div>" + footCS + "</div></div>";
             }
             
             $("#recModal").html(contentString);
+            
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             // log error to browser's console
@@ -113,35 +100,21 @@ $(document).ready(function(){
 
     });
     
+    $('#recModal').on('click', '.hrt', function(event){
     
-    //favourite/unfavourite item when the heart icon is clicked
-    $(".user-fav").click(function(){
-        //get last segment of url i.e. favourite.php, or index.php etc.
-        var href = window.location.href;
-        var file = href.substr(href.lastIndexOf('/') + 1);
-        
-        
-        //at favourite.php table
-        if (file === 'favourite.php'){
-            
-            rec_id = $(this).attr('name');
-            
-            
-        } else { //in a modal
-        
-            rec_id = recs[currentSlide]; 
-            favouriteByCon[currentSlide] = value; //update array value
-        }
-        
-        changeHeartColor($(this),$(this).attr('value'));
-        var value = $(this).attr('value');
+    favourite($(this));
+    var value = fav_value($(this));
+    var rec_id = $(this).attr('value');
+    
+
         
         var parameters = {
             
             rec_id: rec_id,
             fav: value
         };
-
+        
+        
         $.getJSON("update_favourite.php", parameters)
         .done(function(){
             
@@ -153,161 +126,98 @@ $(document).ready(function(){
             console.log(errorThrown.toString());
             
         });         
-        
-        
+   
     });
+    
+    $('#recModal').on('click', '.cart', function(event){
+    
+    manageCart($(this));
+    var value = cart_value($(this));
+    var rec_id = $(this).attr('value');
+    
 
-    // add/remove item from when cart icon in modal is clicked.
-    $(".user-cart").click(function(){
-        
-        //get last segment of url i.e. favourite.php, or index.php etc.
-        var href = window.location.href;
-        var file = href.substr(href.lastIndexOf('/') + 1);
-        
-        var rec_id;
-        
-        //at favourite.php table
-        if (file === 'favourite.php'){
-            
-            rec_id = $(this).attr('name');
-            
-            
-        } else { //in a modal
-            
-            rec_id = recs[currentSlide]; 
-            cartByCon[currentSlide] = value; //update array value
-        }
-        changeCartColor($(this),$(this).attr('value'));
-        var value = $(this).attr('value');
         
         var parameters = {
             
             rec_id: rec_id,
             cart: value
         };
-
+        
+        
         $.getJSON("update_cart.php", parameters)
         .done(function(){
             
-
+            
+            
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             // log error to browser's console
             console.log(errorThrown.toString());
+            
         });         
-        
-        
-    });    
-    
-    $("#myCarousel").on('slide.bs.carousel', function (event) {
-        
-        
-        
-        //slide move left i.e. go to the next slide
-        if (event.direction === "left")
-        {
-            if(currentSlide + 1 === favouriteByCon.length) //move from last slide
-            {
-                displayHeartColor($(".user-fav"),favouriteByCon[0]);
-                displayCartColor($(".user-cart"),cartByCon[0]);
-                
-            }
-            else
-            {
-                var nextSlide = currentSlide + 1;
-                displayHeartColor($(".user-fav"),favouriteByCon[nextSlide]);
-                displayCartColor($(".user-cart"),cartByCon[nextSlide]);
-            }
-            
-        }
-        else //slide move right i.e. go to prev slide
-        {
-            if(currentSlide === 0) //move from first slide
-            {
-                displayHeartColor($(".user-fav"),favouriteByCon[favouriteByCon.length - 1]);
-                displayCartColor($(".user-cart"),cartByCon[cartByCon.length - 1]);
-                
-            }
-            else
-            {
-                var prevSlide = currentSlide - 1;
-                displayHeartColor($(".user-fav"),favouriteByCon[prevSlide]);
-                displayCartColor($(".user-cart"),cartByCon[prevSlide]);
-            }
-
-        }
-            
+   
     });
     
-    $("#myCarousel").on('slid.bs.carousel', function () {
         
-        
-        currentSlide = parseInt($(".active").attr('data-slide-to'));
-        
+    $('#recModal').on('mouseover', '.tn', function(){
+        var car = '#'+ $(this).attr('name');
+        var val = parseInt($(this).attr('value'));
+        $(this).fadeTo(1, 0.6);
+        $(car).carousel(val);
+
     });
 
+    $('#recModal').on('mouseout', '.tn', function(){
+        
+        $(this).fadeTo(1, 1);
+
+    });
+
+    function favourite(fav){
+            
+        if (fav.hasClass("user-fav")){
+            
+            fav.removeClass("user-fav");
+            fav.addClass("user-favourited");
+                
+        } else{
+                
+            fav.removeClass("user-favourited");
+            fav.addClass("user-fav");
+        }
+        
+    }
+
+    function fav_value(fav){
+        
+        return (fav.hasClass('user-fav') ? 0 : 1);
+    }
+
+    function manageCart(cart){
+            
+        if (cart.hasClass("user-cart")){
+            
+            cart.removeClass("user-cart");
+            cart.addClass("user-added-cart");
+                
+        } else{
+                
+            cart.removeClass("user-added-cart");
+            cart.addClass("user-cart");
+        }
+        
+    }
+
+    function cart_value(cart){
     
-    function changeHeartColor(hrt,fav){
-        
-        if(fav === '1' || fav === 1){
-            hrt.removeClass('user-favourited');
-            hrt.addClass('user-not-favourited');
-            hrt.attr('value','0');
-        }
-        else
-        {
-            hrt.removeClass('user-not-favourited');
-            hrt.addClass('user-favourited');
-            hrt.attr('value','1');
-        }
-        
-    };
-    
-    function displayHeartColor(hrt,fav){
-        
-        if(fav === '0' || fav === 0){
-            hrt.removeClass('user-favourited');
-            hrt.addClass('user-not-favourited');
-        }
-        else
-        {
-            hrt.removeClass('user-not-favourited');
-            hrt.addClass('user-favourited');
-            hrt.attr('value','1');
-        }
-        
-    };
-    
-    function changeCartColor(crt,add){
-        
-        if(add === '1' || add === 1){
-            crt.removeClass('user-added-cart');
-            crt.addClass('user-not-added-cart');
-            crt.attr('value','0');
-        }
-        else
-        {
-            crt.removeClass('user-not-added-cart');
-            crt.addClass('user-added-cart');
-            crt.attr('value','1');
-        }
-        
-    };
-    
-    function displayCartColor(crt,add){
-        
-        if(add === '0' || add === 0){
-            crt.removeClass('user-added-cart');
-            crt.addClass('user-not-added-cart');
-            crt.attr('value','0');
-        }
-        else
-        {
-            crt.removeClass('user-not-added-cart');
-            crt.addClass('user-added-cart');
-            crt.attr('value','1');
-        }
-        
-    };   
+        return (cart.hasClass('user-cart') ? 0 : 1);
+    }
+
+
 
 });
+
+
+
+
+
