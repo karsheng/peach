@@ -1,13 +1,7 @@
-            </div>
-
-            <div id="bottom">
-                Brought to you by Peach</a>.
-            </div>
-
-        </div>
+         </div>
     </div>
-    </div>
-    </div>
-    </body>
-
+          <div id="bottom">
+             Brought to you by Peach.
+      </div>
+   </body>
 </html>

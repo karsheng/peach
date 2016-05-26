@@ -6,7 +6,7 @@
           <div class="modal-header">
              <div class="row">
                 <div class="col-xs-1 vcenter mh-tn"><img class="img-circle" src="consultant_photos/<?= $favourite["con_name"]?>_1.jpeg"></div>
-                <div class="col-xs-11 vcenter mh-cn"><?= $favourite["con_name"]?></div>
+                <div class="col-xs-10 vcenter mh-cn"><?= $favourite["con_name"]?></div>
              </div>
           </div>
           <div class="modal-body">
