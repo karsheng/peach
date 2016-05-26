@@ -45,8 +45,8 @@ $(document).ready(function(){
                     {
                         var active = ((j == 0) ? "active" : "");
                         carIndContentString += "<li data-target='#" + car_id + "' data-slide-to='"+ j +"' class='"+ active +"'></li>";
-                        carInnerContentString += "<div class='item " + active + "'><img style='height:100%;' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
-                        tnContentString += "<div><img name='"+car_id+"'class= 'tn' value = '" + j + "' style='margin:0px 0px 15px 0px; height:85px; width: 60%;' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
+                        carInnerContentString += "<div class='item " + active + "'><img src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
+                        tnContentString += "<div><img name='"+car_id+"'class= 'tn' value = '" + j + "' style='' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
                     }
                 
                     for (var k = 0; k < 3; k++)
@@ -77,7 +77,7 @@ $(document).ready(function(){
                 var cart = ((data[i]['cart'] == '0') ? "user-cart" : "user-added-cart");
                 footCS = "<div class='modal-footer'><a role='button'><span class='glyphicon hrt glyphicon-heart " + fav + "' value = '" + data[i]['rec_id'] + "'></span></a><a role='button'><span class='glyphicon cart glyphicon-shopping-cart " + cart + "' value = '" + data[i]['rec_id'] + "'></span></a></div>";   
                 tabCS = "<div id='tab-"+ i +"' class=''><ul class='nav nav-tabs small'>" + tabNavCS + "</ul>" + "<div class='tab-content'>" + tabConCS + "</div></div>";
-                headerContentString = "<div class='modal-header'><h4 class='modal-title'><div class='row'><div class='col-xs-3'><img class = 'img-circle' src = consultant_photos/"+con_name+"_1.jpeg></div><div class='col-xs-9'><p style='text-align:left;'>"+con_name+"</p></div></div></h4></div>";
+                headerContentString = "<div class='modal-header'><div class='row'><div class='col-xs-1 vcenter mh-tn'><img class='img-circle' src = consultant_photos/"+con_name+"_1.jpeg></div><div class='col-xs-11 vcenter mh-cn'>"+con_name+"</div></div></div>";
                 carInnerContentString = "<div class='carousel-inner' role='listbox'>" + carInnerContentString + "</div>";
                 //carIndContentString = "<ol class='carousel-indicators'>" + carIndContentString + "</ol>";
                 leftCtrlContentString = "<a class='left carousel-control' href='#"+ car_id +"' role='button' data-slide='prev'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span><span class='sr-only'>Previous</span></a>";
@@ -86,7 +86,7 @@ $(document).ready(function(){
                 
                 carouselContentString = "<div id='" + car_id + "' class='carousel' data-interval = 'false' data-ride='carousel'>" + carInnerContentString + leftCtrlContentString + rightCtrlContentString + "</div>";
                 
-                contentString += "<div class='modal-dialog'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-xs-9'>"+ carouselContentString + "</div><div id='dress-tn' class='col-xs-3'>" + tnContentString +"</div></div><div class='row'><div class='col-xs-12'>"+ tabCS +"</div></div></div>" + footCS + "</div></div>";
+                contentString += "<div class='modal-dialog'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-xs-9'>"+ carouselContentString + "</div><div class='col-xs-3'>" + tnContentString +"</div></div><div class='row'><div class='col-xs-12'>"+ tabCS +"</div></div></div>" + footCS + "</div></div>";
             }
             
             $("#recModal").html(contentString);
@@ -212,7 +212,6 @@ $(document).ready(function(){
     
         return (cart.hasClass('user-cart') ? 0 : 1);
     }
-
 
 
 });
