@@ -8,7 +8,6 @@
     /* center contents */
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
 
@@ -105,7 +104,7 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: auto;
+  width: auto;
   margin-bottom: 10px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -117,15 +116,18 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
+  height: 400px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
-  height: auto;
+  right:0;
+  bottom:0;
+  margin:auto;
+  width:auto;
+  max-height: 400px;
 }
 /* end of carousel styling*/
 
@@ -143,25 +145,22 @@ body {
 }
 
 .user-fav {
-    font-size:25px;
+    
     color: white;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
 }
 
 .user-favourited {
-    font-size: 25px;
     color: #ED4956;
     text-shadow: -1px 0 #ED4956, 0 1px #ED4956, 1px 0 #ED4956, 0 -1px #ED4956;
 }
 
 .user-added-cart {
-    font-size: 25px;
     color: #ffab00;
     text-shadow: -1px 0 #FFCC6F, 0 1px #FFCC6F, 1px 0 #FFCC6F, 0 -1px #FFCC6F;
 }
 
 .user-cart {
-    font-size: 25px;
     color: white;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
 }
@@ -176,15 +175,19 @@ body {
 
 }
 
-.tab-content>.tab-pane{
-    display:block;
-    visibility:hidden;
-    height:40px;
+.hrt {
+  
+    width: 150px;
+    margin: 15px;
+  
+}
+.cart {
+  
+    width: 150px;
+    margin: 15px;
+  
 }
 
-.tab-content>.active{
-    visibility:visible;
-}
 
 .modal-header {
     padding-top: 10px; 
@@ -212,12 +215,7 @@ body {
   font-size:130%;
 }
 
-.tn {
-  margin:0px 0px 15px 0px;
-  height:85px;
-  width: 60%;
-  
-}
+
 
 /*end of modal header styling/
 
@@ -239,5 +237,46 @@ body {
 img {
   
   height:auto;
+  
+}
+
+
+.carousel-indicators li {
+    
+    background-color: #333333;
+    
+} 
+
+.carousel-indicators .active {
+    border-color: #333333;
+}
+
+
+/*to vertically align and evenly distributed thumbnails.*/
+.img-list { display:table; height:400px; margin-bottom:0px; padding-left:0px; }
+.img-list img { height:60px; width:auto; display:block; position:relative; left:0; right:0; margin:auto;}
+.img-list li { display:table-row; height:60px; }
+.img-list li span { display:table-cell; vertical-align:middle;}
+.img-list li:first-child,
+.img-list li:last-child { height:60px; width:auto; }
+
+.tab-content>.tab-pane{
+    height: 80px;
+  
+}
+
+.modal-lg {
+  
+  max-width: 700px;
+
+}
+
+.test{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
   
 }

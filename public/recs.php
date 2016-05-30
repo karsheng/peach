@@ -6,7 +6,7 @@
     // query database for user
     $user_id = mysqli_real_escape_string($link, $_SESSION['id']);
     $con_id = mysqli_real_escape_string($link, $_GET['con_id']);
-    $query = "SELECT recommendations.id, img_name, comments, price, fav, cart,dress_info.description FROM recommendations INNER JOIN dress_info ON recommendations.img_id = dress_info.id WHERE user_id = ".$user_id." AND con_id = ".$con_id." ORDER BY recommendations.id ASC";
+    $query = "SELECT recommendations.id, img_name, comments, price, fav, cart,dress_info.brand FROM recommendations INNER JOIN dress_info ON recommendations.img_id = dress_info.id WHERE user_id = ".$user_id." AND con_id = ".$con_id." ORDER BY recommendations.id ASC";
     $results = mysqli_query($link, $query);
     $recs = [];
     
@@ -18,6 +18,7 @@
                 
                 'rec_id'    => $row['id'],        
                 'img_name'    => $row['img_name'],
+                'brand'    => $row['brand'],
                 'comments'  => $row['comments'],
                 'price'     => number_format($row["price"], 2, '.', ''),
                 'fav'       => $row['fav'],

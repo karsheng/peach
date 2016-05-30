@@ -1,26 +1,111 @@
-<table class="table table-striped" id="recommendationsTable">
-        <thead>
-            <tr>
-                <th>Recommendations</th>
-                <th>Consultants</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($cons as $con): ?>
-        
-            <tr>
-                <td><?="<img class = 'img-circle' src = consultant_photos/".$con['name']."_1.jpeg >"?></td>
-                <td><?= $con['name']?></td>
-                <td><button name = '<?= $con['name']?>' value = "<?= $con['id']?>" class="btn btn-warning btn-view" data-toggle="modal" data-target="#recModal">View</button></td>
-            </tr>
-        
-        <?php endforeach ?>
-
-        
-        </tbody>
-</table>
-<img class="img-circle" src="consultant_photos/karsheng_1.jpeg">
-	<!-- Modal -->
-	<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  
-	</div>
+<!-- Modal -->
+<div id="recModal">
+    <?php $counter = 0; ?>
+    <?php foreach ($recs as $rec): ?>
+    
+    <div class="modal-dialog modal-lg">
+       <div class="modal-content">
+          <div class="modal-header">
+             <div class="row">
+                <div class="col-xs-1 vcenter mh-tn"><img class="img-circle" src="consultant_photos/<?= $rec["con_name"]?>_1.jpeg"></div>
+                <div class="col-xs-10 vcenter mh-cn"><?= $rec["con_name"]?></div>
+             </div>
+          </div>
+          <div class="modal-body">
+             <div class="row">
+                <div class="col-md-7 col-sm-8 col-xs-12">
+                   <div id="car-<?=$counter?>" class="carousel" data-interval="false" data-ride="carousel">
+                      <div class="carousel-inner" role="listbox">
+                        <ol class="carousel-indicators">
+                            <?php for ($x = 0; $x < 5; $x++): ?>
+                            <?php $active = $x == 0 ? 'active': '';?>
+                            <li data-target="#car-<?=$counter?>" data-slide-to="<?=$x?>" class="<?=$active?>"></li>
+                            <?php endfor ?>
+                        </ol>
+                        <?php for ($x = 0; $x < 5; $x++): ?>
+                        <?php $active = $x == 0 ? 'active': '';?>
+                        <div class="item <?=$active?>"><img src="dresses/<?=$rec["brand"]?>-<?=$rec["img_name"]?>-<?=$x?>.jpg" alt="<?=$rec["img_name"]?>"></div>
+                        <?php endfor ?>
+                      </div>
+                      <a class="left carousel-control" href="#car-<?=$counter?>" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#car-<?=$counter?>" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+                   </div>
+                </div>
+                <div class="col-md-1 hidden-xs hidden-sm container">
+                    <ul class="img-list">
+                    <?php for ($x = 0; $x < 5; $x++): ?>
+                    <?php $active = $x == 0 ? 'active': '';?>                    
+                    <li><span><img name="car-<?=$counter?>" class="tn" value="<?=$x?>" style="" src="dresses/<?=$rec["brand"]?>-<?=$rec["img_name"]?>-<?=$x?>.jpg" alt="<?=$rec["img_name"]?>"></span></li>
+                    <?php endfor ?>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12" style='text-align:center;'>
+                    <h4 class='text-capitalize'><?=$rec['img_name']?></h4>
+                    <h5 class='text-capitalize'><?=$rec['brand']?></h5>
+                    <h5><i>RM <?=$rec['price']?></i></h5>
+                    <div>
+                    <a role='button' class="btn btn-success cart">
+                    <span class="glyphicon glyphicon-shopping-cart user-cart" value="<?=$rec["rec_id"]?>"></span> Add to Cart
+                    </a>
+                    </div>
+                    <div>
+                    <a role='button' class="btn btn-info hrt">
+                      <span class="glyphicon glyphicon-heart user-fav" value="<?=$rec["rec_id"]?>"></span> Add to Favourite
+                    </a>
+                    </div>
+                    <div>
+                    <strong><?=$rec['con_name']?></strong>: <?=$rec['comments']?>
+                    </div>
+                </div>                
+             </div>
+             <div class="row">
+                <div class="col-xs-12">
+                   <div id="tab-<?=$counter?>" class="">
+                    <nav class='navbar navbar-default'>
+                        <div class='container'>
+                      <ul class="nav navbar-nav small">
+                         <li class="active">
+                            <a data-toggle="tab" href="#tab-<?=$counter?>-0" data-toggle="tab">
+                               <h5>Details</h5>
+                            </a>
+                         </li>
+                         <li class="">
+                            <a data-toggle="tab" href="#tab-<?=$counter?>-1" data-toggle="tab">
+                               <h5>Size Details</h5>
+                            </a>
+                         </li>
+                         <li class="">
+                            <a data-toggle="tab" href="#tab-<?=$counter?>-2" data-toggle="tab">
+                               <h5>Other Colors</h5>
+                            </a>
+                         </li>
+                         <li class="">
+                            <a data-toggle="tab" href="#tab-<?=$counter?>-3" data-toggle="tab">
+                               <h5>Shipping & Returns</h5>
+                            </a>
+                         </li>
+                         <li class="">
+                            <a data-toggle="tab" href="#tab-<?=$counter?>-4" data-toggle="tab">
+                               <h5>Contact</h5>
+                            </a>
+                         </li>
+                         
+                      </ul>
+                      </div>
+                      </nav>   
+                      <div class="tab-content">
+                         <div class="tab-pane active" id="tab-<?=$counter?>-0"><p><?=$rec['comments']?></p></div>
+                         <div class="tab-pane " id="tab-<?=$counter?>-1"><p><?=$rec['details']?></p></div>
+                         <div class="tab-pane " id="tab-<?=$counter?>-2"><p>Available soon.</p></div>
+                         <div class="tab-pane " id="tab-<?=$counter?>-3"><p>All shipping is free. You can return anytime you want, no questions asked.</p></div>
+                         <div class="tab-pane " id="tab-<?=$counter?>-4"><p>Call us here at 012-6930715</p></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="modal-footer"><a role="button"><span class="glyphicon hrt glyphicon-heart user-favourited" value="<?=$rec["rec_id"]?>"></span></a><a role="button"><span class="glyphicon cart glyphicon-shopping-cart user-cart" value="<?=$rec["rec_id"]?>"></span></a></div>
+       </div>
+    </div>
+    <?php $counter++;?>
+    <?php endforeach ?>
+</div>

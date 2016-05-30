@@ -40,13 +40,19 @@ $(document).ready(function(){
                 var tabConCS = "";
                 var tabCS = "";
                 var footCS = "";
+                var brand = data[i]['brand'];
+                var dressName = data[i]['img_name'];
+                var productDescCS = "";
+                var addToCartBtnCS ="";
+                var addTo
+                
                 
                     for (var j = 0; j < 5; j++)
                     {
                         var active = ((j == 0) ? "active" : "");
                         carIndContentString += "<li data-target='#" + car_id + "' data-slide-to='"+ j +"' class='"+ active +"'></li>";
-                        carInnerContentString += "<div class='item " + active + "'><img src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
-                        tnContentString += "<div><img name='"+car_id+"'class= 'tn' value = '" + j + "' style='' src='dresses/" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
+                        carInnerContentString += "<div class='item " + active + "'><img src='dresses/" + data[i]['brand'] + "-" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></div>";
+                        tnContentString += "<li><span><img name='"+car_id+"'class= 'tn' value = '" + j + "' style='' src='dresses/" + data[i]['brand'] + "-" + data[i]['img_name'] + "-"+ j +".jpg' alt='"+ data[i]['img_name'] +"'></span></li>";
                     }
                 
                     for (var k = 0; k < 3; k++)
@@ -78,15 +84,14 @@ $(document).ready(function(){
                 footCS = "<div class='modal-footer'><a role='button'><span class='glyphicon hrt glyphicon-heart " + fav + "' value = '" + data[i]['rec_id'] + "'></span></a><a role='button'><span class='glyphicon cart glyphicon-shopping-cart " + cart + "' value = '" + data[i]['rec_id'] + "'></span></a></div>";   
                 tabCS = "<div id='tab-"+ i +"' class=''><ul class='nav nav-tabs small'>" + tabNavCS + "</ul>" + "<div class='tab-content'>" + tabConCS + "</div></div>";
                 headerContentString = "<div class='modal-header'><div class='row'><div class='col-xs-1 vcenter mh-tn'><img class='img-circle' src = consultant_photos/"+con_name+"_1.jpeg></div><div class='col-xs-11 vcenter mh-cn'>"+con_name+"</div></div></div>";
-                carInnerContentString = "<div class='carousel-inner' role='listbox'>" + carInnerContentString + "</div>";
-                //carIndContentString = "<ol class='carousel-indicators'>" + carIndContentString + "</ol>";
+                carIndContentString = "<ol class='carousel-indicators'>" + carIndContentString + "</ol>";
+                carInnerContentString = "<div class='carousel-inner' role='listbox'>" + carIndContentString + carInnerContentString + "</div>";
                 leftCtrlContentString = "<a class='left carousel-control' href='#"+ car_id +"' role='button' data-slide='prev'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span><span class='sr-only'>Previous</span></a>";
                 rightCtrlContentString = "<a class='right carousel-control' href='#" + car_id + "' role='button' data-slide='next'><span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span><span class='sr-only'>Next</span></a>";
-                
-                
+                tnContentString = "<ul class='img-list'>" + tnContentString + "</ul>";
                 carouselContentString = "<div id='" + car_id + "' class='carousel' data-interval = 'false' data-ride='carousel'>" + carInnerContentString + leftCtrlContentString + rightCtrlContentString + "</div>";
-                
-                contentString += "<div class='modal-dialog'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-xs-9'>"+ carouselContentString + "</div><div class='col-xs-3'>" + tnContentString +"</div></div><div class='row'><div class='col-xs-12'>"+ tabCS +"</div></div></div>" + footCS + "</div></div>";
+                productDescCS = "<h4>"+dressName+"</h4>" + "<h5>"+brand+"</h5>" + "<h5><i>RM "+ data[i]['price'] + "</i></h5>";
+                contentString += "<div class='modal-dialog modal-lg'><div class='modal-content'>" + headerContentString + "<div class='modal-body'><div class='row'><div class='col-md-5 col-xs-12'>" + carouselContentString + "</div><div class='col-md-1 hidden-xs hidden-sm'>" + tnContentString +"</div>"+"<div class='col-md-6'>"+ productDescCS+"</div></div><div class='row'><div class='col-xs-12'>"+ tabCS +"</div></div></div>" + footCS + "</div></div>";
             }
             
             $("#recModal").html(contentString);
@@ -102,7 +107,7 @@ $(document).ready(function(){
     
     $('#recModal').on('click', '.hrt', function(event){
     
-    favourite($(this));
+    favourite($(this).find('glyphicon'));
     var value = fav_value($(this));
     var rec_id = $(this).attr('value');
     

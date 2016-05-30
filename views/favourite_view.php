@@ -1,7 +1,7 @@
 <div id="recModal">
     <?php $counter = 0; ?>
     <?php foreach ($favourites as $favourite): ?>
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
        <div class="modal-content">
           <div class="modal-header">
              <div class="row">
