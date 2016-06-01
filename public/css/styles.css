@@ -147,22 +147,22 @@ body {
 .user-fav {
     
     color: white;
-    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+    
 }
 
 .user-favourited {
     color: #ED4956;
-    text-shadow: -1px 0 #ED4956, 0 1px #ED4956, 1px 0 #ED4956, 0 -1px #ED4956;
+    
 }
 
 .user-added-cart {
     color: #ffab00;
-    text-shadow: -1px 0 #FFCC6F, 0 1px #FFCC6F, 1px 0 #FFCC6F, 0 -1px #FFCC6F;
+    
 }
 
 .user-cart {
     color: white;
-    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+    
 }
 
 #favourite {
@@ -261,10 +261,13 @@ img {
 .img-list li:last-child { height:60px; width:auto; }
 
 .tab-content>.tab-pane{
-    height: 80px;
+    min-height: 80px;
   
 }
-
+.tab-content>.tab-pane> p{
+    padding:10px;
+  
+}
 .modal-lg {
   
   max-width: 700px;
@@ -278,5 +281,43 @@ img {
   left:0;
   right:0;
   margin:auto;
+  
+}
+
+.modal-content{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+.sizes-table td{
+  
+  width: 60px;
+  height: 30px;
+  
+}
+.sizes-table th{
+  
+  width: 60px;
+  height: 40px;
+  
+}
+
+.details-table td{
+  
+    vertical-align: text-top;
+    text-align:left;
+    padding:10px;
+}
+
+.details-table .det-prop{
+  
+    width:100px;
+}
+
+.comment-section {
+  
+  text-align: justify;
   
 }
