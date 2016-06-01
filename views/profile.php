@@ -1,4 +1,7 @@
 <!-- Modal -->
+<script type="text/javascript">
+var item = new Array();
+</script>
 <div id="recModal">
     <?php $counter = 0; ?>
     <?php foreach ($recs as $rec): ?>
@@ -50,14 +53,32 @@
                     <h4 class='text-capitalize'><?=$rec['img_name']?></h4>
                     <h5 class='text-capitalize'><?=$rec['brand']?></h5>
                     <h5><i>RM <?=$rec['price']?></i></h5>
+                    </br>
+                    <div class='row'>
+                        <div class="form-group">
+                            <a role='button' class="btn min-btn" name="item-no-<?=$counter?>">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </a>
+                        <input style="width:40px; text-align:center;" class="form-control" id="item-no-<?=$counter?>" value='1' type="text">
+                            <a role='button' class="btn plus-btn" name="item-no-<?=$counter?>">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            </a>                            
+                        </div>
+                    </div>
                     <div>
+                    <?php 
+                        $cart = ($rec['cart'] == 0) ? 'user-cart': 'user-added-cart';
+                        $fav = ($rec['fav'] == 0) ? 'user-fav': 'user-favourited';
+                    
+                    ?>
+                    
                     <a role='button' class="btn btn-success cart">
-                    <span class="glyphicon glyphicon-shopping-cart user-cart" value="<?=$rec["rec_id"]?>"></span> Add to Cart
+                    <span class="glyphicon glyphicon-shopping-cart <?=$cart?>" value="<?=$rec["rec_id"]?>"></span>  Add to Cart
                     </a>
                     </div>
                     <div>
                     <a role='button' class="btn btn-info hrt">
-                      <span class="glyphicon glyphicon-heart user-fav" value="<?=$rec["rec_id"]?>"></span> Add to Favourite
+                      <span class="glyphicon glyphicon-heart <?=$fav?>" value="<?=$rec["rec_id"]?>"></span>  Add to Favourite
                     </a>
                     </div>
                     <div class='comment-section'>
@@ -81,20 +102,9 @@
                          </li>
                          <li class="">
                             <a data-toggle="tab" href="#tab-<?=$counter?>-2" data-toggle="tab">
-                               <h5>Other Colors</h5>
-                            </a>
-                         </li>
-                         <li class="">
-                            <a data-toggle="tab" href="#tab-<?=$counter?>-3" data-toggle="tab">
                                <h5>Shipping & Returns</h5>
                             </a>
                          </li>
-                         <li class="">
-                            <a data-toggle="tab" href="#tab-<?=$counter?>-4" data-toggle="tab">
-                               <h5>Contact</h5>
-                            </a>
-                         </li>
-                         
                       </ul>
                  
                       </div>
@@ -165,16 +175,18 @@
                             </br>
                             <p><small>-All measurements are in cm.</small></p>
                         </div>
-                         <div class="tab-pane " id="tab-<?=$counter?>-2"><p>Available soon.</p></div>
-                         <div class="tab-pane " id="tab-<?=$counter?>-3"><p>All shipping is free. You can return anytime you want, no questions asked.</p></div>
-                         <div class="tab-pane " id="tab-<?=$counter?>-4"><p>Call us here at 012-6930715</p></div>
+                         <div class="tab-pane " id="tab-<?=$counter?>-2"><p>All shipping is free. You can return anytime you want, no questions asked.</p></div>
                       </div>  
                 </div>
              </div>
           </div>
-          <div class="modal-footer"><a role="button"><span class="glyphicon hrt glyphicon-heart user-favourited" value="<?=$rec["rec_id"]?>"></span></a><a role="button"><span class="glyphicon cart glyphicon-shopping-cart user-cart" value="<?=$rec["rec_id"]?>"></span></a></div>
        </div>
     </div>
+    <script type="text/javascript">
+        
+        var name = "item-no-"+ "<?= $counter?>";
+        item[name] = 1;
+    </script>    
     <?php $counter++;?>
     <?php endforeach ?>
 </div>

@@ -3,7 +3,9 @@
  *
  * Global JavaScript, if any.
  */
- 
+
+// var item - created in profile.php to count number of items added to cart.
+
 $(document).ready(function(){
     
 //show recommendations modal    
@@ -44,7 +46,6 @@ $(document).ready(function(){
                 var dressName = data[i]['img_name'];
                 var productDescCS = "";
                 var addToCartBtnCS ="";
-                var addTo
                 
                 
                     for (var j = 0; j < 5; j++)
@@ -107,9 +108,9 @@ $(document).ready(function(){
     
     $('#recModal').on('click', '.hrt', function(event){
     
-    favourite($(this).find('glyphicon'));
-    var value = fav_value($(this));
-    var rec_id = $(this).attr('value');
+    favourite($(this).find('span'));
+    var value = fav_value($(this).find('span'));
+    var rec_id = $(this).find('span').attr('value');
     
 
         
@@ -136,11 +137,10 @@ $(document).ready(function(){
     
     $('#recModal').on('click', '.cart', function(event){
     
-    manageCart($(this));
-    var value = cart_value($(this));
-    var rec_id = $(this).attr('value');
+    manageCart($(this).find('span'));
+    var value = cart_value($(this).find('span'));
+    var rec_id = $(this).find('span').attr('value');
     
-
         
         var parameters = {
             
@@ -177,6 +177,36 @@ $(document).ready(function(){
         $(this).fadeTo(1, 1);
 
     });
+
+//increase quantity of item by 1 with each click  
+    $('#recModal').on('click', '.min-btn', function(){
+        
+        var itemID = $(this).attr('name');
+        
+        if (item[itemID] > 1) {
+            
+            item[itemID] -= 1
+            document.getElementById(itemID).value = item[itemID];
+            
+        } 
+
+    });
+
+//decrease quantity of item by 1 with each click
+    $('#recModal').on('click', '.plus-btn', function(){
+        
+        var itemID = $(this).attr('name');
+
+
+        if (item[itemID] < 10) {
+            
+            item[itemID] += 1;
+            document.getElementById(itemID).value = item[itemID];
+            
+        } 
+
+    });     
+   
 
     function favourite(fav){
             
@@ -217,7 +247,7 @@ $(document).ready(function(){
     
         return (cart.hasClass('user-cart') ? 0 : 1);
     }
-
+    
 
 });
 
