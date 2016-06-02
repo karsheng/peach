@@ -1,7 +1,4 @@
 <!-- Modal -->
-<script type="text/javascript">
-var item = new Array();
-</script>
 <div id="recModal">
     <?php $counter = 0; ?>
     <?php foreach ($recs as $rec): ?>
@@ -54,26 +51,33 @@ var item = new Array();
                     <h5 class='text-capitalize'><?=$rec['brand']?></h5>
                     <h5><i>RM <?=$rec['price']?></i></h5>
                     </br>
-                    <div class='row'>
                         <div class="form-group">
-                            <a role='button' class="btn min-btn" name="item-no-<?=$counter?>">
-                                <span class="glyphicon glyphicon-minus"></span>
-                            </a>
-                        <input style="width:40px; text-align:center;" class="form-control" id="item-no-<?=$counter?>" value='1' type="text">
-                            <a role='button' class="btn plus-btn" name="item-no-<?=$counter?>">
-                            <span class="glyphicon glyphicon-plus"></span>
-                            </a>                            
+                                <label for="sd-size-<?=$counter?>">Size:</label>                                
+                                <select style="width:75px;" class="form-control" name="item-no-<?=$counter?>">
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                        </div> 
+                        <div class="form-group">        
+                                <a role='button' class="btn min-btn" name="item-no-<?=$counter?>">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </a>
+                                <input style="width:40px; text-align:center;" class="form-control" id="item-no-<?=$counter?>" value='1' type="text">
+                                <a role='button' class="btn plus-btn" name="item-no-<?=$counter?>">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
                         </div>
-                    </div>
-                    <div>
                     <?php 
-                        $cart = ($rec['cart'] == 0) ? 'user-cart': 'user-added-cart';
+                        $cart = ($rec['cart'] == 0) ? 'user-cart': 'user-cart';
                         $fav = ($rec['fav'] == 0) ? 'user-fav': 'user-favourited';
                     
                     ?>
-                    
+                    <div>
                     <a role='button' class="btn btn-success cart">
-                    <span class="glyphicon glyphicon-shopping-cart <?=$cart?>" value="<?=$rec["rec_id"]?>"></span>  Add to Cart
+                    <span class="glyphicon glyphicon-shopping-cart <?=$cart?>" name='item-no-<?=$counter?>' value="<?=$rec["rec_id"]?>"></span>  Add to Cart
                     </a>
                     </div>
                     <div>
@@ -83,7 +87,7 @@ var item = new Array();
                     </div>
                     <div class='comment-section'>
                     <strong><?=$rec['con_name']?></strong>:</br> <?=$rec['comments']?>
-                    </div>
+                    </div>                     
                 </div>                
              </div>
              <div class="row">
@@ -182,11 +186,6 @@ var item = new Array();
           </div>
        </div>
     </div>
-    <script type="text/javascript">
-        
-        var name = "item-no-"+ "<?= $counter?>";
-        item[name] = 1;
-    </script>    
     <?php $counter++;?>
     <?php endforeach ?>
 </div>

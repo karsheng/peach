@@ -5,16 +5,16 @@
     
     // query database for user
     $user_id = mysqli_real_escape_string($link, $_SESSION['id']);
-    $query = "SELECT recommendations.id, img_name, img_id, comments, price, fav, cart,dress_info.brand,dress_info.details, dress_info.xs,dress_info.s,dress_info.m,dress_info.l,dress_info.xl,dress_info.color,dress_info.care_label,dress_info.composition, consultants.con_name FROM recommendations INNER JOIN dress_info ON recommendations.img_id = dress_info.id INNER JOIN consultants ON recommendations.con_id = consultants.id WHERE user_id = ".$user_id." ORDER BY recommendations.id ASC;";
+    $query = "SELECT recommendations.id, img_name, img_id, comments, price, cart,dress_info.brand, dress_info.color, consultants.con_name FROM recommendations INNER JOIN dress_info ON recommendations.img_id = dress_info.id INNER JOIN consultants ON recommendations.con_id = consultants.id WHERE user_id = ".$user_id." ORDER BY recommendations.id ASC;";
     $results = mysqli_query($link, $query);
-    $recs = [];
+    $items = [];
     $itemInCart = 0;
     
     if (mysqli_num_rows($results) > 0)
     {
         while($row = mysqli_fetch_array($results))
         {
-            $recs[] = [
+            $items[] = [
                 
                 'rec_id'    => $row['id'],
                 'img_id'    => $row['img_id'],
@@ -22,18 +22,9 @@
                 'brand'    => $row['brand'],
                 'comments'  => $row['comments'],
                 'price'     => number_format($row["price"], 2, '.', ''),
-                'fav'       => $row['fav'],
                 'cart'      => $row['cart'],
                 'con_name'  => $row['con_name'],
-                'details'  => $row['details'],
-                'xs'     => $row['xs'],
-                's'     => $row['s'],
-                'm'     => $row['m'],
-                'l'     => $row['l'],
-                'xl'     => $row['xl'],
                 'color'     => $row['color'],
-                'care_label'     => $row['care_label'],
-                'composition'     => $row['composition']
                 //'dress_info.description' => $row['desc']
                 
             ]; 
@@ -46,6 +37,6 @@
     }
   
         // render profile
-    render("profile.php", ["recs" => $recs,"itemInCart" => $itemInCart , "title" => "Profile"]);    
+    render("cart_view.php", ["items" => $items,"itemInCart" => $itemInCart , "title" => "Profile"]);    
 
 ?>

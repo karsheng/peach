@@ -6,8 +6,18 @@
 
 // var item - created in profile.php to count number of items added to cart.
 
+
+
 $(document).ready(function(){
-    
+
+    var itemInCart = parseInt(document.getElementById('item-in-cart').textContent);    
+    var item = []; //number of items in the cart
+    var noOfRecs = $('.modal-dialog').length;
+
+    for (var i = 0; i < noOfRecs; i++) {
+        item['item-no-'+i] = 1;
+    }
+
 //show recommendations modal    
     $(".btn-view").click(function(){
         
@@ -137,22 +147,23 @@ $(document).ready(function(){
     
     $('#recModal').on('click', '.cart', function(event){
     
-    manageCart($(this).find('span'));
-    var value = cart_value($(this).find('span'));
+    var name = $(this).find('span').attr('name');
+    var value = item[name];
     var rec_id = $(this).find('span').attr('value');
-    
-        
+    var sd_size = $("select[name="+name+"]").val();
         var parameters = {
             
             rec_id: rec_id,
-            cart: value
+            cart: value,
+            sd_size: sd_size
         };
         
         
         $.getJSON("update_cart.php", parameters)
         .done(function(){
-            
-            
+
+            itemInCart += value;    
+            document.getElementById('item-in-cart').textContent = itemInCart;    
             
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
@@ -191,6 +202,9 @@ $(document).ready(function(){
         } 
 
     });
+    
+    //remove button popover
+    $('[data-toggle="popover"]').popover();   
 
 //decrease quantity of item by 1 with each click
     $('#recModal').on('click', '.plus-btn', function(){
@@ -198,7 +212,7 @@ $(document).ready(function(){
         var itemID = $(this).attr('name');
 
 
-        if (item[itemID] < 10) {
+        if (item[itemID] < 100) {
             
             item[itemID] += 1;
             document.getElementById(itemID).value = item[itemID];
@@ -228,26 +242,6 @@ $(document).ready(function(){
         return (fav.hasClass('user-fav') ? 0 : 1);
     }
 
-    function manageCart(cart){
-            
-        if (cart.hasClass("user-cart")){
-            
-            cart.removeClass("user-cart");
-            cart.addClass("user-added-cart");
-                
-        } else{
-                
-            cart.removeClass("user-added-cart");
-            cart.addClass("user-cart");
-        }
-        
-    }
-
-    function cart_value(cart){
-    
-        return (cart.hasClass('user-cart') ? 0 : 1);
-    }
-    
 
 });
 

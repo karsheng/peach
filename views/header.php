@@ -39,8 +39,8 @@
                <ul class="nav nav-pills">
                   <li><a href="/public/">Home</a></li>
                   <li><a href="profile.php">Profile</a></li>
-                  <li><a href="favourite.php" role="button"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
-                  <li><a href="cart.php" role="button"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span></a></li>
+                  <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
+                  <li><a href="cart.php"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span><div id="item-in-cart"><?=$itemInCart?></div></a></li>
                   <li><a href="logout.php"><strong>Log Out</strong></a></li>
                </ul>
             </div>
@@ -49,7 +49,7 @@
       </nav>
       <?php else: ?>
       <div id='top' class='container'>
-         <a href="/public/"><img style='width:10%; height:auto; margin-bottom: 15px; margin-top: 1p5x;' alt="Peach" src="img/logo.png"/></a>
+         <a href="/public/"><img style='width:10%; height:auto; margin-bottom: 15px; margin-top: 15px;' alt="Peach" src="img/logo.png"/></a>
       </div>      
       <?php endif ?>
       <div id="middle" class='container'>

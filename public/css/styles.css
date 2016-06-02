@@ -166,13 +166,13 @@ body {
 }
 
 #favourite {
-    font-size: 20px;
-
+    font-size: 25px;
+    vertical-align:middle;
 }
 
 #cart {
-    font-size: 20px;
-
+    font-size: 25px;
+    vertical-align:middle;
 }
 
 .hrt {
@@ -331,4 +331,45 @@ input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/*indicating the number of items in cart*/
+#item-in-cart {
+  
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+
+    width: 25px;
+    height: 25px;
+    line-height:25px;
+    margin-left:5px;
+    
+    background: #EEEEEE;
+    
+    color: gray;
+    text-align: center;
+    vertical-align: middle;
+    
+    font: 20px;
+    
+    display: inline-block;
+}
+
+/*styling size caption to be the same size of button to match alignment*/
+.size-style{
+  
+  padding:7px 13px 7px 13px;
+  height:14px;
+  width:20px;
+
+  
+}
+
+.comment-section {
+  margin-bottom: 10px;
+  
+}
+
+select {
+    padding-left:10px;
 }
