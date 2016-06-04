@@ -8,6 +8,7 @@
       <!-- http://getbootstrap.com/ -->
       <link href="css/bootstrap.min.css" rel="stylesheet"/>
       <link href="css/styles.css" rel="stylesheet"/>
+
       <?php if (isset($title)): ?>
       <title>Peach: <?= htmlspecialchars($title) ?></title>
       <?php else: ?>
@@ -17,10 +18,16 @@
       <script src="js/jquery-1.11.3.min.js"></script>
       <!-- http://getbootstrap.com/ -->
       <script src="js/bootstrap.min.js"></script>
+      
+      <!-- http://www.jacklmoore.com/zoom/ -->
+      <script src="js/jquery.zoom.min.js"></script>
+      
       <script src="js/scripts.js"></script>
+
       <!-- http://dropzonejs.com/ -->
       <script src="dropzone-4.3.0/dist/dropzone.js"></script>
       <link rel="stylesheet" href="dropzone-4.3.0/dist/dropzone.css">
+      
    </head>
    <body>
       <?php if (!empty($_SESSION["id"])): ?>

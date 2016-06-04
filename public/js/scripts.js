@@ -12,10 +12,12 @@ $(document).ready(function(){
 
     var itemInCart = parseInt(document.getElementById('item-in-cart').textContent);    
     var item = []; //number of items in the cart
-    var noOfRecs = $('.modal-dialog').length;
+    var noOfRecs = $('.modal-body').length;
 
     for (var i = 0; i < noOfRecs; i++) {
-        item['item-no-'+i] = 1;
+        
+        item['item-no-'+i] = parseInt($('#item-no-'+i).attr('value'));
+    
     }
 
 //show recommendations modal    
@@ -145,32 +147,9 @@ $(document).ready(function(){
    
     });
     
-    $('#recModal').on('click', '.cart', function(event){
+    $('#recModal').on('click', '.add-to-cart', function(event){
     
-    var name = $(this).find('span').attr('name');
-    var value = item[name];
-    var rec_id = $(this).find('span').attr('value');
-    var sd_size = $("select[name="+name+"]").val();
-        var parameters = {
-            
-            rec_id: rec_id,
-            cart: value,
-            sd_size: sd_size
-        };
-        
-        
-        $.getJSON("update_cart.php", parameters)
-        .done(function(){
-
-            itemInCart += value;    
-            document.getElementById('item-in-cart').textContent = itemInCart;    
-            
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            // log error to browser's console
-            console.log(errorThrown.toString());
-            
-        });         
+        addToCart($(this));
    
     });
     
@@ -189,24 +168,51 @@ $(document).ready(function(){
 
     });
 
-//increase quantity of item by 1 with each click  
+    //increase quantity of item by 1 with each click  
     $('#recModal').on('click', '.min-btn', function(){
         
         var itemID = $(this).attr('name');
         
         if (item[itemID] > 1) {
             
-            item[itemID] -= 1
+            item[itemID] -= 1;
             document.getElementById(itemID).value = item[itemID];
             
-        } 
+        }
+
 
     });
+    
+    $('select.in-cart').on('change', function (e) {
+        
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        
+        if ($(this).hasClass("update-size")){
+            updateSize($(this),valueSelected);
+        }else{
+            
+            updateQty($(this),valueSelected);
+        }
+        
+        
+        
+    });
+    
+    $(".remove-from-cart").on('click', function(){
+        
+        updateQty($(this),0);
+        
+    });
+    
+    
+    //http://www.jacklmoore.com/zoom/
+    $('div.item').zoom();
     
     //remove button popover
     $('[data-toggle="popover"]').popover();   
 
-//decrease quantity of item by 1 with each click
+    //decrease quantity of item by 1 with each click
     $('#recModal').on('click', '.plus-btn', function(){
         
         var itemID = $(this).attr('name');
@@ -241,8 +247,90 @@ $(document).ready(function(){
         
         return (fav.hasClass('user-fav') ? 0 : 1);
     }
+    
+    function addToCart(e){
+    
+        var name = e.attr('name');
+        var value = item[name];
+        var rec_id = e.attr('value');
+        var sd_size = $("select[name="+name+"]").val();
+        
+            var parameters = {
+                
+                rec_id: rec_id,
+                cart: value,
+                sd_size: sd_size
+            };
+            
+            
+            $.getJSON("add_to_cart.php", parameters)
+            .done(function(){
+    
+                itemInCart += value;    
+                document.getElementById('item-in-cart').textContent = itemInCart;    
+                
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                // log error to browser's console
+                console.log(errorThrown.toString());
+                
+            });         
+       
+    }
+    
+    function updateSize(e,v){
+            
+        var sd_size = v;
+        var rec_id = e.attr('value');
+        var parameters = {
+                
+            rec_id: rec_id,
+            sd_size: sd_size
+        };
+            
+        
+            
+        $.getJSON("update_size.php", parameters)
+        .done(function(){
+            
+            $("#size-id-"+rec_id).html("("+ sd_size + ")"); 
 
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // log error to browser's console
+            console.log(errorThrown.toString());
+                
+        });
+            
+       
+    }
+    
+    function updateQty(e,v){
+            
+        var cart = v;
+        var rec_id = e.attr('value');
+        var parameters = {
+                
+            rec_id: rec_id,
+            cart: cart
+        };
+            
+        $.getJSON("update_qty.php", parameters)
+        .done(function(){
+            location.reload();    
+            //var price = parseFloat($("#price-id-"+rec_id).html());
+            //var contentString = cart + " x " + price.toFixed(2);
+            //console.log(contentString);
 
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // log error to browser's console
+            console.log(errorThrown.toString());
+                
+        });
+            
+       
+    }    
 });
 
 
