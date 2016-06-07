@@ -22,16 +22,16 @@
       <!-- http://www.jacklmoore.com/zoom/ -->
       <script src="js/jquery.zoom.min.js"></script>
       
+      <!-- http://www.jqueryscript.net/form/Highly-Customizable-Range-Slider-Plugin-For-Bootstrap-Bootstrap-Slider.html -->
+      <script src="js/bootstrap-slider.min.js"></script>
+      <link href="css/bootstrap-slider.min.css" rel="stylesheet"/>
+      
       <script src="js/scripts.js"></script>
-
-      <!-- http://dropzonejs.com/ -->
-      <script src="dropzone-4.3.0/dist/dropzone.js"></script>
-      <link rel="stylesheet" href="dropzone-4.3.0/dist/dropzone.css">
       
    </head>
    <body>
       <?php if (!empty($_SESSION["id"])): ?>
-      <nav class='navbar navbar-dark navbar-inverse navbar-fixed-top'>
+      <nav class='navbar navbar-inverse navbar-fixed-top'>
          <div id='top' class='container'>
             <div class='navbar-header'>
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -40,16 +40,17 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <a class="navbar-brand" href="#">Peach</a>
+               <a class="navbar-brand" href="/public/">Peach</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-               <ul class="nav nav-pills">
-                  <li><a href="/public/">Home</a></li>
-                  <li><a href="profile.php">Profile</a></li>
+               <div class="navbar-right">
+                  <ul class="nav nav-pills">
+                  <li><a role="button" data-toggle="modal" data-target="#upload-selfie"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
                   <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
                   <li><a href="cart.php"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span><div id="item-in-cart"><?=$itemInCart?></div></a></li>
-                  <li><a href="logout.php"><strong>Log Out</strong></a></li>
-               </ul>
+                  <li><a href="logout.php"><strong>Logout</strong></a></li>
+                  </ul>
+               </div>
             </div>
             <!--/.navbar-collapse -->
          </div>
@@ -61,3 +62,10 @@
       <?php endif ?>
       <div id="middle" class='container'>
          <div class='row'>
+                
+    <?php 
+    // include upload form to edit user info
+    require("upload_form.php"); 
+    
+    ?>
+    

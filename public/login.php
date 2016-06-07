@@ -37,7 +37,7 @@
             {
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["id"] = $row["id"];
-                
+                $_SESSION["username"] = $row["username"];
                 
                 if ($_POST['stayLoggedIn'] == '1') 
                 {

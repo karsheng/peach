@@ -6,8 +6,6 @@
 
 // var item - created in profile.php to count number of items added to cart.
 
-
-
 $(document).ready(function(){
 
     var itemInCart = parseInt(document.getElementById('item-in-cart').textContent);    
@@ -330,7 +328,71 @@ $(document).ready(function(){
         });
             
        
+    }
+    
+    
+    var imageLoader = document.getElementById('filePhoto');
+    var imageLoader2 = document.getElementById('filePhoto2');
+    imageLoader.addEventListener('change', handleImage, false);
+    imageLoader2.addEventListener('change', handleImage2, false);
+    
+    function handleImage(e) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            
+            $('#uld1 img').attr('src',event.target.result);
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    }
+    
+    function handleImage2(e) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            
+            $('#uld2 img').attr('src',event.target.result);
+        };
+        reader.readAsDataURL(e.target.files[0]);
     }    
+
+
+    $('#imageUploadForm').on('submit',(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            type:'POST',
+            url: "upload.php",
+            data:formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                console.log("success");
+                console.log(data);
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }));
+
+    $("#filePhoto").on("change", function() {
+        $("#imageUploadForm").submit();
+    });
+    
+    $("#filePhoto2").on("change", function() {
+        $("#imageUploadForm").submit();
+    });    
+
+    // initiate price slider
+    $("#ex15").slider({
+    	min: 10,
+    	max: 1000,
+    	scale: 'logarithmic',
+    	step: 10
+    });
+
 });
 
 

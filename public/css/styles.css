@@ -56,6 +56,8 @@ table, th
 {
     border-style: dashed;
     border-color: #ffab00;
+    width: 300px;
+    height: 500px;
 }
 
 
@@ -233,7 +235,7 @@ body {
 /*modal dialog*/
 .modal-dialog {
   
-  margin-bottom:60px;
+  margin-bottom:30px;
   
 }
 
@@ -398,3 +400,67 @@ select {
   text-align:center;
   
 }
+
+.uld {
+  position:relative;
+  width:250px;
+  height:400px;
+  overflow:hidden; 
+  background:#f3f3f3; 
+  border:2px dashed #e8e8e8;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  
+  
+}
+.uld:hover {
+  position:relative;
+  width:250px;
+  height:400px;
+  opacity:0.7;
+  background:#f3f3f3; 
+  border:3px dashed #428bca;
+  
+}
+
+#filePhoto{
+    display: block;
+    position:relative;
+    width:250px;
+    height:400px;
+    margin-left:auto;
+    margin-right:auto;
+    top:-400px;
+    bottom:0;
+    z-index:2;
+    opacity:0;
+    cursor:pointer;
+}
+#filePhoto2{
+    position:relative;
+    width:250px;
+    height:400px;
+    margin:auto;
+    top:-400px;
+    left:0;
+    right:0;
+    bottom:0;    
+    z-index:2;
+    opacity:0;
+    cursor:pointer;
+}
+
+.uld-img{
+    position:relative;
+    max-width:250px;
+    max-height:400px;
+    height:100%;
+    width:auto;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    z-index:1;
+    border:none;
+}
+

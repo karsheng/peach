@@ -21,7 +21,7 @@
           </div>
           <div class="modal-body">
              <div class="row">
-                <div class="col-md-1 hidden-xs hidden-sm container">
+                <div class="col-md-1 col-sm-1 hidden-xs container">
                     <ul class="img-list">
                     <?php for ($x = 0; $x < 5; $x++): ?>
                     <?php $active = $x == 0 ? 'active': '';?>                    
@@ -29,7 +29,7 @@
                     <?php endfor ?>
                     </ul>
                 </div>                 
-                <div class="col-md-5 col-sm-7 col-xs-12" style="margin-left:auto; margin-right:auto;">
+                <div class="col-md-5 col-sm-5 col-xs-12" style="margin-left:auto; margin-right:auto;">
                    <div id="car-<?=$counter?>" class="carousel" data-interval="false" data-ride="carousel">
                       <div class="carousel-inner" role="listbox">
                         <ol class="carousel-indicators">
@@ -46,7 +46,7 @@
                       <a class="left carousel-control" href="#car-<?=$counter?>" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#car-<?=$counter?>" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
                    </div>
                 </div>
-                <div class="col-md-6 col-sm-5 col-xs-12" style='text-align:center;'>
+                <div class="col-md-6 col-sm-6 col-xs-12" style='text-align:center;'>
                     <h4 class='text-capitalize'><?=$rec['img_name']?></h4>
                     <h5 class='text-capitalize'><?=$rec['brand']?></h5>
                     <h5><i>RM <?=$rec['price']?></i></h5>
@@ -106,7 +106,7 @@
                          </li>
                          <li class="">
                             <a data-toggle="tab" href="#tab-<?=$counter?>-2" data-toggle="tab">
-                               <h5>Shipping & Returns</h5>
+                               <h5>Shipping</h5>
                             </a>
                          </li>
                       </ul>
@@ -189,3 +189,5 @@
     <?php $counter++;?>
     <?php endforeach ?>
 </div>
+
+
