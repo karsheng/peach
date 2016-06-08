@@ -390,11 +390,10 @@ $(document).ready(function(){
     	min: 10,
     	max: 1000,
     	scale: 'logarithmic',
-    	step: 10
+    	step: 10,
     });
 
 });
-
 
 
 

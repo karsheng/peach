@@ -45,9 +45,10 @@
             <div id="navbar" class="navbar-collapse collapse">
                <div class="navbar-right">
                   <ul class="nav nav-pills">
-                  <li><a role="button" data-toggle="modal" data-target="#upload-selfie"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
+                  <li><a href="/public/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
                   <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
                   <li><a href="cart.php"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span><div id="item-in-cart"><?=$itemInCart?></div></a></li>
+                  <li><a role="button" data-toggle="modal" data-target="#upload-selfie"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
                   <li><a href="logout.php"><strong>Logout</strong></a></li>
                   </ul>
                </div>
@@ -57,11 +58,10 @@
       </nav>
       <?php else: ?>
       <div id='top' class='container'>
-         <a href="/public/"><img style='width:10%; height:auto; margin-bottom: 15px; margin-top: 15px;' alt="Peach" src="img/logo.png"/></a>
+         
       </div>      
       <?php endif ?>
       <div id="middle" class='container'>
-         <div class='row'>
                 
     <?php 
     // include upload form to edit user info

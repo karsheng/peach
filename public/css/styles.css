@@ -1,269 +1,193 @@
 /**
- * styles.css
- * Global CSS.
- */
-
+* styles.css
+* Global CSS.
+*/
 .container
 {
-    /* center contents */
-    margin-left: auto;
-    margin-right: auto;
+/* center contents */
+margin-left: auto;
+margin-right: auto;
 }
-
-
 .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+display: inline-block;
+vertical-align: middle;
+float: none;
 }
-
 #top
 {
-    /* surround with whitespace */
-    margin-bottom: 0px;
-    margin-top: 0px;
+/* surround with whitespace */
+margin-bottom: 0px;
+margin-top: 0px;
 }
-
 #top .nav
 {
-    /* center navigation pills */
-    display: inline-block;
+/* center navigation pills */
+display: inline-block;
 }
-
 #middle .form-control
 {
-    /* center form controls */
-    display: inline-block;
-
-    /* override Bootstrap's 100% width for form controls */
-    width: auto;
+/* center navigation pills */
+display: inline-block;
 }
-
 #bottom
 {
-    /* shrink bottom's font size */
-    font-size: smaller;
-
-    /* surround with whitespace */
-    margin: 20px;
+/* shrink bottom's font size */
+font-size: smaller;
+/* surround with whitespace */
+margin: 20px;
+     /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
 }
-
-table, th
-{
-    text-align : center;
-}
-#peach_dropzone_area
-{
-    border-style: dashed;
-    border-color: #ffab00;
-    width: 300px;
-    height: 500px;
-}
-
-
 /* carousel.css
 */
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
 body {
-  padding-bottom: 40px;
-  color: #5a5a5a;
-  background-color:#EEEEEE;
+padding-bottom: 40px;
+color: #5a5a5a;
+background-color:#EEEEEE;
 }
-
-
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
-
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+z-index: 20;
 }
-
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
+padding-right: 0;
+padding-left: 0;
 }
 .navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
+padding-right: 15px;
+padding-left: 15px;
 }
 .navbar-wrapper .navbar .container {
-  width: auto;
+width: auto;
 }
-
-
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-
 /* Carousel base class */
 .carousel {
-  max-width:270px;
-  margin-bottom: 10px;
-  margin-left:auto; 
-  margin-right:auto;
-  max-height:350px;
+max-width:270px;
+margin-bottom: 10px;
+margin-left:auto; 
+margin-right:auto;
+max-height:350px;
 }
 /* Carousel inner */
 .carousel-inner{
-  
-  max-width:270px;
-  max-height:350px;
+max-width:270px;
+max-height:350px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  position: relative;
-  left: auto;
-  right: auto;
+position: relative;
+left: auto;
+right: auto;
 }
-
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 400px;
-  background-color: #777;
+height: 400px;
+background-color: #777;
 }
 .carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right:0;
-  bottom:0;
-  margin:auto;
-  width:auto;
-  height:100%;
-  max-height: 400px;
+position: absolute;
+top: 0;
+left: 0;
+right:0;
+bottom:0;
+margin:auto;
+width:auto;
+height:100%;
+max-height: 400px;
 }
 /* end of carousel styling*/
-
 .dress-container {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width: 100%;
-  height: 70%;
-  
+display:flex;
+justify-content:center;
+align-items:center;
+width: 100%;
+height: 70%;
 }
 .dress-container img {
-    min-width:100%;
-    min-height:100%
+min-width:100%;
+min-height:100%
 }
-
 .user-fav {
-    
-    color: white;
-    
+color: white;
 }
-
 .user-favourited {
-    color: #ED4956;
-    
+color: #ED4956;
 }
-
 .user-added-cart {
-    color: #ffab00;
-    
+color: #ffab00;
 }
-
 .user-cart {
-    color: white;
-    
+color: white;
 }
-
 #favourite {
-    font-size: 25px;
-    vertical-align:middle;
+font-size: 25px;
+vertical-align:middle;
 }
-
 #cart {
-    font-size: 25px;
-    vertical-align:middle;
+font-size: 25px;
+vertical-align:middle;
 }
-
 .hrt {
-  
-    width: 150px;
-    margin: 15px;
-  
+width: 150px;
+margin: 15px;
 }
 .cart {
-  
-    width: 150px;
-    margin: 15px;
-  
+width: 150px;
+margin: 15px;
 }
-
-
 .modal-header {
-    padding-top: 10px; 
-    padding-left: 15px; 
-    padding-right: 15px; 
-    padding-bottom: 10px;
+padding-top: 10px; 
+padding-left: 15px; 
+padding-right: 15px; 
+padding-bottom: 10px;
 }
-
 /* modal header*/
 /*overwriting padding-right (= 0px) to make consultant name closer to img*/
 .mh-tn {
-  
-  padding-right:0px;
-  
+padding-right:0px;
 }
 .mh-tn > img{
-  width:100%; 
-  height:auto;
-  
+width:100%; 
+height:auto;
 }
-
 /* consultant name font size and text alignment*/
 .mh-cn {
-  text-align: left; 
-  font-size:130%;
+text-align: left; 
+font-size:130%;
 }
-
-
-
 /*end of modal header styling/
-
-
 /*modal dialog*/
 .modal-dialog {
-  
-  margin-bottom:30px;
-  
+margin-bottom:30px;
 }
-
-
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+padding-top: 50px;
+padding-bottom: 20px;
 }
-
 img {
-  
-  height:auto;
-  
+height:auto;
 }
-
-
 .carousel-indicators li {
-    
-    background-color: #333333;
-    
+background-color: #333333;
 } 
-
 .carousel-indicators .active {
-    border-color: #333333;
+border-color: #333333;
 }
-
-
 /*to vertically align and evenly distributed thumbnails.*/
 .img-list { display:table; height:350px; margin-bottom:0px; padding-left:0px; }
 .img-list img { height:60px; width:auto; display:block; position:relative; left:0; right:0; margin:auto;}
@@ -271,196 +195,173 @@ img {
 .img-list li span { display:table-cell; vertical-align:middle;}
 .img-list li:first-child,
 .img-list li:last-child { height:60px; width:auto; }
-
 .tab-content>.tab-pane{
-    min-height: 80px;
-  
+min-height: 80px;
 }
 .tab-content>.tab-pane> p{
-    padding:10px;
-  
+padding:10px;
 }
 .modal-lg {
-  margin-left:auto;
-  margin-right:auto;
-  max-width: 650px;
-
+margin-left:auto;
+margin-right:auto;
+max-width: 650px;
 }
-
 .centered{
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin:auto;
-  
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+margin:auto;
 }
-
 .modal-content{
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+-o-box-shadow: none;
+box-shadow: none;
 }
-
 .sizes-table td{
-  
-  width: 60px;
-  height: 30px;
-  
+width: 60px;
+height: 30px;
 }
 .sizes-table th{
-  
-  width: 60px;
-  height: 40px;
-  
+width: 60px;
+height: 40px;
 }
-
 .details-table td{
-  
-    vertical-align: text-top;
-    text-align:left;
-    padding:10px;
+vertical-align: text-top;
+text-align:left;
+padding:10px;
 }
-
 .details-table .det-prop{
-  
-    width:100px;
+width:100px;
 }
-
 .comment-section {
-  
-  text-align: justify;
-  
+text-align: justify;
 }
-
 .item-no {
-  
 }
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+/* display: none; <- Crashes Chrome on hover */
+-webkit-appearance: none;
+margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
-
 /*indicating the number of items in cart*/
 #item-in-cart {
-  
-    border-radius: 50%;
-    behavior: url(PIE.htc);
-
-    width: 25px;
-    height: 25px;
-    line-height:25px;
-    margin-left:5px;
-    
-    background: #EEEEEE;
-    
-    color: gray;
-    text-align: center;
-    vertical-align: middle;
-    
-    font: 20px;
-    
-    display: inline-block;
+border-radius: 50%;
+behavior: url(PIE.htc);
+width: 25px;
+height: 25px;
+line-height:25px;
+margin-left:5px;
+background: #EEEEEE;
+color: gray;
+text-align: center;
+vertical-align: middle;
+font: 20px;
+display: inline-block;
 }
-
 /*styling size caption to be the same size of button to match alignment*/
 .size-style{
-  
-  padding:7px 13px 7px 13px;
-  height:14px;
-  width:20px;
-
-  
+padding:7px 13px 7px 13px;
+height:14px;
+width:20px;
 }
-
 .comment-section {
-  margin-bottom: 10px;
-  
+margin-bottom: 10px;
 }
-
 select {
-  padding-left:10px;
+padding-left:10px;
 }
-
 .modal-md {
-  
-  margin-left:auto;
-  margin-right:auto;
-  max-width:500px;
+margin-left:auto;
+margin-right:auto;
+max-width:500px;
 }
-
 .item-in-cart{
-  
-  width:40px; 
-  text-align:center;
-  
+width:40px; 
+text-align:center;
 }
-
 .uld {
-  position:relative;
-  width:250px;
-  height:400px;
-  overflow:hidden; 
-  background:#f3f3f3; 
-  border:2px dashed #e8e8e8;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  
-  
+position:relative;
+width:250px;
+height:400px;
+overflow:hidden; 
+background:#f3f3f3; 
+border:2px dashed #e8e8e8;
+display:block;
+margin-left:auto;
+margin-right:auto;
 }
 .uld:hover {
-  position:relative;
-  width:250px;
-  height:400px;
-  opacity:0.7;
-  background:#f3f3f3; 
-  border:3px dashed #428bca;
-  
+position:relative;
+width:250px;
+height:400px;
+opacity:0.7;
+background:#f3f3f3; 
+border:3px dashed #428bca;
 }
-
 #filePhoto{
-    display: block;
-    position:relative;
-    width:250px;
-    height:400px;
-    margin-left:auto;
-    margin-right:auto;
-    top:-400px;
-    bottom:0;
-    z-index:2;
-    opacity:0;
-    cursor:pointer;
+display: block;
+position:relative;
+width:250px;
+height:400px;
+margin-left:auto;
+margin-right:auto;
+top:-400px;
+bottom:0;
+z-index:2;
+opacity:0;
+cursor:pointer;
 }
 #filePhoto2{
-    position:relative;
-    width:250px;
-    height:400px;
-    margin:auto;
-    top:-400px;
-    left:0;
-    right:0;
-    bottom:0;    
-    z-index:2;
-    opacity:0;
-    cursor:pointer;
+position:relative;
+width:250px;
+height:400px;
+margin:auto;
+top:-400px;
+left:0;
+right:0;
+bottom:0;    
+z-index:2;
+opacity:0;
+cursor:pointer;
 }
-
 .uld-img{
-    position:relative;
-    max-width:250px;
-    max-height:400px;
-    height:100%;
-    width:auto;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    z-index:1;
-    border:none;
+position:relative;
+max-width:250px;
+max-height:400px;
+height:100%;
+width:auto;
+display:block;
+margin-left:auto;
+margin-right:auto;
+z-index:1;
+border:none;
 }
+.m-table td{
+padding:5px;
+}
+#q-table td{
+padding:3px;
+min-width:40px;
+}
+#want-table{
+height:100px;
+}
+#sign-in-up-form{
+     /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;   
+}
+#sign-in-up-form .form-control{
+    
+    /* center form controls */
+    display: inline-block;
 
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+
+}
