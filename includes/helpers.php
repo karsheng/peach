@@ -18,6 +18,11 @@
     {
         render("apology.php", ["message" => $message]);
     }
+    
+    function conApologize($message)
+    {
+        conrender("apology.php", ["message" => $message]);
+    }    
 
     /**
      * Facilitates debugging by dumping contents of argument(s)
@@ -88,6 +93,31 @@
             require("../views/header.php");
             require("../views/{$view}");
             require("../views/footer.php");
+            exit;
+        }
+
+        // else err
+        else
+        {
+            trigger_error("Invalid view: {$view}", E_USER_ERROR);
+        }
+    }
+    
+        /**
+     * Renders view, passing in values.
+     */
+    function conrender($view, $values = [])
+    {
+        // if view exists, render it
+        if (file_exists("../../views/consultant/{$view}"))
+        {
+            // extract variables into local scope
+            extract($values);
+
+            // render view (between header and footer)
+            require("../../views/consultant/header.php");
+            require("../../views/consultant/{$view}");
+            require("../../views/footer.php");
             exit;
         }
 

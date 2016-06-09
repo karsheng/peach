@@ -7,6 +7,8 @@
 /* center contents */
 margin-left: auto;
 margin-right: auto;
+max-width:800px;
+
 }
 .vcenter {
 display: inline-block;
@@ -76,16 +78,16 @@ width: auto;
 -------------------------------------------------- */
 /* Carousel base class */
 .carousel {
-max-width:270px;
+max-width:290px;
 margin-bottom: 10px;
 margin-left:auto; 
 margin-right:auto;
-max-height:350px;
+max-height:430px;
 }
 /* Carousel inner */
 .carousel-inner{
-max-width:270px;
-max-height:350px;
+width:100%;
+max-height:430px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -95,7 +97,7 @@ right: auto;
 }
 /* Declare heights because of positioning of img element */
 .carousel .item {
-height: 400px;
+height: 430px;
 background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -105,9 +107,9 @@ left: 0;
 right:0;
 bottom:0;
 margin:auto;
-width:auto;
+width:100%;
 height:100%;
-max-height: 400px;
+max-height: 430px;
 }
 /* end of carousel styling*/
 .dress-container {
@@ -161,8 +163,9 @@ padding-bottom: 10px;
 padding-right:0px;
 }
 .mh-tn > img{
-width:100%; 
-height:auto;
+width:auto; 
+
+height:40px;
 }
 /* consultant name font size and text alignment*/
 .mh-cn {
@@ -173,6 +176,7 @@ font-size:130%;
 /*modal dialog*/
 .modal-dialog {
 margin-bottom:30px;
+
 }
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
@@ -189,12 +193,12 @@ background-color: #333333;
 border-color: #333333;
 }
 /*to vertically align and evenly distributed thumbnails.*/
-.img-list { display:table; height:350px; margin-bottom:0px; padding-left:0px; }
-.img-list img { height:60px; width:auto; display:block; position:relative; left:0; right:0; margin:auto;}
-.img-list li { display:table-row; height:60px; }
+.img-list { display:table; height:430px; margin-bottom:0px; padding-left:0px; }
+.img-list img { height:65px; width:auto; display:block; position:relative; left:0; right:0; margin:auto;}
+.img-list li { display:table-row; height:65px; }
 .img-list li span { display:table-cell; vertical-align:middle;}
 .img-list li:first-child,
-.img-list li:last-child { height:60px; width:auto; }
+.img-list li:last-child { height:65px; width:auto; }
 .tab-content>.tab-pane{
 min-height: 80px;
 }
@@ -204,7 +208,7 @@ padding:10px;
 .modal-lg {
 margin-left:auto;
 margin-right:auto;
-max-width: 650px;
+max-width: 700px;
 }
 .centered{
 position:absolute;
@@ -238,6 +242,7 @@ width:100px;
 }
 .comment-section {
 text-align: justify;
+min-height:120px;
 }
 .item-no {
 }
@@ -364,4 +369,23 @@ height:100px;
     /* override Bootstrap's 100% width for form controls */
     width: auto;
 
+}
+
+@media (max-width: 768px) {
+    .container {
+      padding:0;
+    }
+
+}
+
+#navpills{
+    position:relative;
+    top:2.5px;
+    
+}
+.invoice-item{
+    margin-bottom:15px;
+}
+.invoice-item p{
+    margin:5px;
 }

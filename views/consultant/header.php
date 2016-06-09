@@ -1,14 +1,14 @@
+<!--consultant-->
 <!DOCTYPE html>
 <html>
    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-
+      <link href="../img/favicon.png" rel="icon" type="image/x-icon" />
       <!-- http://getbootstrap.com/ -->
-      <link href="img/favicon.png" rel="icon" type="image/x-icon" />
-      <link href="css/bootstrap.min.css" rel="stylesheet"/>
-      <link href="css/styles.css" rel="stylesheet"/>
+      <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="../css/styles.css" rel="stylesheet"/>
 
       <?php if (isset($title)): ?>
       <title>Peach: <?= htmlspecialchars($title) ?></title>
@@ -16,18 +16,18 @@
       <title>Peach</title>
       <?php endif ?>
       <!-- https://jquery.com/ -->
-      <script src="js/jquery-1.11.3.min.js"></script>
+      <script src="../js/jquery-1.11.3.min.js"></script>
       <!-- http://getbootstrap.com/ -->
-      <script src="js/bootstrap.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
       
       <!-- http://www.jacklmoore.com/zoom/ -->
-      <script src="js/jquery.zoom.min.js"></script>
+      <script src="../js/jquery.zoom.min.js"></script>
       
       <!-- http://www.jqueryscript.net/form/Highly-Customizable-Range-Slider-Plugin-For-Bootstrap-Bootstrap-Slider.html -->
-      <script src="js/bootstrap-slider.min.js"></script>
-      <link href="css/bootstrap-slider.min.css" rel="stylesheet"/>
+      <script src="../js/bootstrap-slider.min.js"></script>
+      <link href="../css/bootstrap-slider.min.css" rel="stylesheet"/>
       
-      <script src="js/scripts.js"></script>
+      <script src="../js/scripts.js"></script>
       
    </head>
    <body>
@@ -49,8 +49,6 @@
                      <ul id="navpills" class="nav nav-pills">
                      <li><a href="/public/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
                      <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
-                     <li><a href="cart.php"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span><div id="item-in-cart"><?=$itemInCart?></div></a></li>
-                     <li><a role="button" data-toggle="modal" data-target="#upload-selfie"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
                      <li><a href="logout.php"><span id='favourite' class='glyphicon glyphicon-log-out'></span></a></li>
                      </ul>
                   </div>
@@ -60,11 +58,6 @@
          </nav>
       <div id="middle" class='container'>
                             
-    <?php 
-    // include upload form to edit user info
-    require("upload_form.php"); 
-    
-    ?>
 
       <?php else: ?>
       

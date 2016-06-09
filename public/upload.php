@@ -34,7 +34,7 @@
         }
         
         // Check file size
-        if ($_FILES["userprofile_picture"]["size"] > 500000 || $_FILES["userprofile_picture2"]["size"] > 500000) {
+        if ($_FILES["userprofile_picture"]["size"] > 10000000 || $_FILES["userprofile_picture2"]["size"] > 500000) {
             apologize("Sorry, your file is too large.");
             $uploadOk = 0;
         }

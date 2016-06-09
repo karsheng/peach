@@ -1,13 +1,14 @@
+<!--consultant-->
 <?php
 
     // configuration
-    require("../includes/config.php"); 
+    require("../../includes/config.php"); 
 
     // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("consultant_login_form.php", ["title" => "Log In"]);
+        conrender("login_form.php", ["title" => "Consultant Log In"]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
@@ -16,11 +17,11 @@
         // validate submission
         if (empty($_POST["con_name"]))
         {
-            apologize("You must provide your username.");
+            conApologize("You must provide your username.");
         }
         else if (empty($_POST["password"]))
         {
-            apologize("You must provide your password.");
+            conApologize("You must provide your password.");
         }
 
         // query database for user
@@ -37,7 +38,7 @@
             {
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["id"] = $row["id"];
-                
+                $_SESSION["con_name"] = $row["con_name"];
                 
                 if ($_POST['stayLoggedIn'] == '1') 
                 {
@@ -48,12 +49,12 @@
                 } 
 
                 // redirect to portfolio
-                redirect("/public/");
+                redirect("/public/consultant/");
             }
         }
 
         // else apologize
-        apologize("Invalid username and/or password.");
+        conApologize("Invalid username and/or password.");
     }
 
 ?>

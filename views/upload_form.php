@@ -131,7 +131,6 @@
 						</td>
 						<td>
 							<form class="form-inline">
-								<label>RM </label>
 								<div class="form-group"><input type="text" name="" value="" class="form-control"></div>
 							</form>
 						</td>
@@ -141,9 +140,10 @@
 					</tr>
 					<?php endforeach ?>
 				</table>
-				<label>Not in the list?</label>
-				<textarea class="form-control" placeholder="Let us know here! Separate your items with ','. E.g. Shoes, heels, handbags" rows="3"></textarea>
+				<label>Any special request?</label>
+				<textarea class="form-control" placeholder="Let us know here!" rows="5"></textarea>
 				</br>
+				<!--
 				<div class="form-group">        
 					<label>How much would you pay for a dress?</label>
 					</br>
@@ -151,6 +151,7 @@
 					</br>
 					<b>RM 10&nbsp;</b><input id="ex15" type="text" data-slider-value="50" data-slider-tooltip="always"/><b>&nbsp;No Specific Budget</b>
 				</div>
+				-->
 			</div>
 			<div class="modal-footer">
 				<div style="float:left">

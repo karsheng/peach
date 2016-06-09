@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div id="recModal">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
        <div class="modal-content">
     <?php 
         $counter = 0; 
@@ -10,14 +10,20 @@
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-7">
                 <?php foreach ($items as $item): ?>
+                <div class="invoice-item">
                 <p><strong><?=$item['img_name']?></strong> <span id="size-id-<?=$item['rec_id']?>">(<?=$item['sd_size']?>)</span></p>
+                <p><i><?=$item['brand']?></i></p>
                 <p><?=$item['cart']?>  x <?=$item['price']?></p>
+                </div>
                 <?php endforeach ?>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-5" style="text-align:right;">
                 <?php foreach ($items as $item): ?>
+                <div class="invoice-item">
+                <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>RM <?=number_format($item['cart']*$item['price'], 2, '.', '')?></p>
+                </div>
                 <?php endforeach ?>
             </div>
         </div>
@@ -35,12 +41,12 @@
     <?php foreach ($items as $item): ?>
           <div class="modal-body cart-modal" id="<?=$item['rec_id']?>">
              <div class="row">
-                <div style="height:250px" class="col-md-5 col-sm-5 col-xs-5">
-                    <img style="height:200px; width:auto; position:absolute; margin:auto; top:0; left:0; right:0; bottom:0;" src="dresses/<?=$item["img_id"]?>-0.jpg" alt="<?=$item["img_name"]?>">
+                <div style="height:250px" class="col-md-6 col-sm-6 col-xs-6">
+                    <img style="height:250px; width:auto; position:absolute; margin:auto; top:0; left:0; right:0; bottom:0;" src="dresses/<?=$item["img_id"]?>-0.jpg" alt="<?=$item["img_name"]?>">
                 </div>
-                <div class="col-md-7 col-sm-7 col-xs-7" style='text-align:center;'>
-                    <h4 class='text-capitalize'><?=$item['img_name']?></h4>
-                    <h5 class='text-capitalize'><?=$item['brand']?></h5>
+                <div class="col-md-6 col-sm-6 col-xs-6" style='text-align:center;'>
+                    <h4 class='text-capitalize'><?=$item['brand']?></h4>
+                    <h5 class='text-capitalize'><?=$item['img_name']?></h5>
                     <h5><i>RM <span id="price-id-<?=$item['rec_id']?>"><?=$item['price']?></span></i></h5>
                     </br>
                         <div class="form-group">

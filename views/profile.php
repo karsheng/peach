@@ -14,10 +14,8 @@
     <div class="modal-dialog modal-lg">
        <div class="modal-content">
           <div class="modal-header">
-             <div class="row">
-                <div class="col-xs-1 vcenter mh-tn"><img class="img-circle" src="consultant_photos/<?= $rec["con_name"]?>_1.jpeg"></div>
-                <div class="col-xs-10 vcenter mh-cn"><?= $rec["con_name"]?></div>
-             </div>
+                <div class="vcenter mh-tn"><img class="img-circle" src="consultant_photos/<?= $rec["con_name"]?>_1.jpeg"></div>
+                <div class="vcenter mh-cn">&nbsp;&nbsp;<?= $rec["con_name"]?></div>
           </div>
           <div class="modal-body">
              <div class="row">
@@ -29,7 +27,7 @@
                     <?php endfor ?>
                     </ul>
                 </div>                 
-                <div class="col-md-5 col-sm-5 col-xs-12" style="margin-left:auto; margin-right:auto;">
+                <div class="col-md-6 col-sm-6 col-xs-12" style="margin-left:auto; margin-right:auto;">
                    <div id="car-<?=$counter?>" class="carousel" data-interval="false" data-ride="carousel">
                       <div class="carousel-inner" role="listbox">
                         <ol class="carousel-indicators">
@@ -46,9 +44,9 @@
                       <a class="left carousel-control" href="#car-<?=$counter?>" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#car-<?=$counter?>" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
                    </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12" style='text-align:center;'>
-                    <h4 class='text-capitalize'><?=$rec['img_name']?></h4>
-                    <h5 class='text-capitalize'><?=$rec['brand']?></h5>
+                <div class="col-md-5 col-sm-5 col-xs-12" style='text-align:center;'>
+                    <h4 class='text-capitalize'><?=$rec['brand']?></h4>
+                    <h5 class='text-capitalize'><?=$rec['img_name']?></h5>
                     <h5><i>RM <?=$rec['price']?></i></h5>
                     </br>
                         <div class="form-group">
@@ -61,7 +59,9 @@
                                     <option>XL</option>
                                 </select>
                         </div> 
-                        <div class="form-group">        
+                        <p><i>Recommended</i>: <strong>M</strong></p>
+                        </br>
+                        <div class="form-group">
                                 <a role='button' class="btn min-btn" name="item-no-<?=$counter?>">
                                     <span class="glyphicon glyphicon-minus"></span>
                                 </a>
@@ -85,12 +85,14 @@
                       <span class="glyphicon glyphicon-heart <?=$fav?>" value="<?=$rec["rec_id"]?>"></span>  Add to Favourite
                     </a>
                     </div>
-                    <div class='comment-section'>
-                    <strong><?=$rec['con_name']?></strong>:</br> <?=$rec['comments']?>
-                    </div>                     
                 </div>                
              </div>
              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class='comment-section'>
+                        <strong><?=$rec['con_name']?></strong>:</br> <?=$rec['comments']?>
+                    </div>
+                </div>
                 <div class="col-xs-12">
                    <div id="tab-<?=$counter?>" class="">
                       <ul class="nav nav-tabs small">
