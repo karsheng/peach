@@ -33,7 +33,7 @@
    <body>
       
       <?php if (!empty($_SESSION["id"])): ?>
-         <nav class='navbar navbar-default navbar-fixed-top'>
+         <nav class='navbar navbar-inverse navbar-fixed-top'>
             <div id='top' class='container'>
                <div class='navbar-header'>
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -42,13 +42,13 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/public/">Peach</a>
+                  <a class="navbar-brand" href="/public_html/consultant/">Peach Consultant</a>
                </div>
                <div id="navbar" class="navbar-collapse collapse">
                   <div class="navbar-right">
                      <ul id="navpills" class="nav nav-pills">
-                     <li><a href="/public/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
-                     <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
+                     <li><a href="/public_html/consultant/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
+                     <li><a href="/public_html/consultant/profile.php"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
                      <li><a href="logout.php"><span id='favourite' class='glyphicon glyphicon-log-out'></span></a></li>
                      </ul>
                   </div>

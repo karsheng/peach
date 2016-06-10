@@ -1,5 +1,5 @@
 <!--consultant-->
-<h1>Profile</h1>
+<h1>User Profile</h1>
 
 <ul>
     <li><img style="height:200px; width:auto;" src="../img/<?=$user['username']?>-1.jpg" /></li>

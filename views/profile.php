@@ -14,8 +14,12 @@
     <div class="modal-dialog modal-lg">
        <div class="modal-content">
           <div class="modal-header">
+                <form action="con-profile.php" method="GET">
+                <button class="btn-link nounderline" name="c" type="submit" value="<?=$rec["con_name"]?>">
                 <div class="vcenter mh-tn"><img class="img-circle" src="consultant_photos/<?= $rec["con_name"]?>_1.jpeg"></div>
                 <div class="vcenter mh-cn">&nbsp;&nbsp;<?= $rec["con_name"]?></div>
+                </button>
+                </form>
           </div>
           <div class="modal-body">
              <div class="row">

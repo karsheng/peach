@@ -16,7 +16,8 @@
             $con = [
                 
                 'profile'  => $row['profile'],
-                'email'    => $row['email']
+                'email'    => $row['email'],
+                'con_name'  =>  $row['con_name']
             ]; 
         }
     }

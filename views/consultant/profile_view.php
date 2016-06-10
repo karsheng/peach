@@ -1,5 +1,5 @@
 <!--consultant-->
-<h1>Profile</h1>
+<h1><?=$con["con_name"]?></h1>
 
 <ul>
     <li><?=$con["email"]?></li>

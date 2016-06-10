@@ -42,12 +42,12 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/public/">Peach</a>
+                  <a class="navbar-brand" href="/public_html/">Peach</a>
                </div>
                <div id="navbar" class="navbar-collapse collapse">
                   <div class="navbar-right">
                      <ul id="navpills" class="nav nav-pills">
-                     <li><a href="/public/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
+                     <li><a href="/public_html/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
                      <li><a href="favourite.php"><span id='favourite' class='glyphicon glyphicon-heart'></span></a></li>
                      <li><a href="cart.php"><span id='cart' class='glyphicon glyphicon-shopping-cart'></span><div id="item-in-cart"><?=$itemInCart?></div></a></li>
                      <li><a role="button" data-toggle="modal" data-target="#upload-selfie"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>

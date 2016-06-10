@@ -49,7 +49,7 @@
                 } 
 
                 // redirect to portfolio
-                redirect("/public/consultant/");
+                redirect("/public_html/consultant/");
             }
         }
 

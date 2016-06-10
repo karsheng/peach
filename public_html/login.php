@@ -48,7 +48,7 @@
                 } 
 
                 // redirect to portfolio
-                redirect("/public/");
+                redirect("/public_html/");
             }
         }
 

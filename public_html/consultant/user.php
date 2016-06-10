@@ -29,7 +29,7 @@
                 
             }
         }
-        conrender("user_view.php", ["user" => $user, "title" => $user['username']]);
+        conrender("user_profile.php", ["user" => $user, "title" => $user['username']]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)
