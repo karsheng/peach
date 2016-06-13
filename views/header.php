@@ -60,11 +60,6 @@
          </nav>
       <div id="middle" class='container'>
                             
-    <?php 
-    // include upload form to edit user info
-    require("upload_form.php"); 
-    
-    ?>
 
       <?php else: ?>
       

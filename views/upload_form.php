@@ -35,71 +35,75 @@
 				</br>
 				<p class="text-center">Tap picture to upload.</p>
 				<hr>
-<div class="row">
-			  <div class="col-md-12">
-			  <form action="questionaire.php" method="post">
-					<table class="m-table">
-						<tr>
-							<td>
-								<label>Height:&nbsp;</label>
-							</td>
-							<td>
-								<select style="width:75px;" class="form-control" name="height">
-									<?php for ($i=120; $i < 250; $i++): ?>
-									<option><?=$i?></option>
-									<?php endfor ?>
-								</select>
-							</td>
-							<td>cm</td>
-						</tr>
-						<tr>
-							<td>
-								<label>Bust / Chest:&nbsp;</label>                                
-							</td>
-							<td>
-								<select style="width:75px;" class="form-control" name="chest">
-									<?php for ($i=20; $i < 61; $i++): ?>
-									<option><?=$i?></option>
-									<?php endfor ?>
-								</select>
-							</td>
-							<td>inch</td>
-						</tr>
-						<tr>
-							<td>
-								<label>Waist:&nbsp;</label>                                
-							</td>
-							<td>
-								<select style="width:75px;" class="form-control" name="waist">
-									<?php for ($i=10; $i < 61; $i++): ?>
-									<option><?=$i?></option>
-									<?php endfor ?>
-								</select>
-							</td>
-							<td>inch</td>
-						</tr>
-						<tr>
-							<td>
-								<label>Hips:&nbsp;</label>                                
-							</td>
-							<td>
-								<select style="width:75px;" class="form-control" name="hips">
-									<?php for ($i=20; $i < 61; $i++): ?>
-									<option><?=$i?></option>
-									<?php endfor ?>
-								</select>
-							</td>
-							<td>inch</td>
-						</tr>
-					</table>
-				</form>
-				</div>			
-			
-			</div>
-			
+				<div class="row">
+					<div class="col-md-12">
+						<table id="m-table">
+							<tr>
+								<td>
+									<label>Height:&nbsp;</label>
+								</td>
+								<td>
+									<select style="width:75px;" class="form-control user-measurement" id="uHeight">
+										<option>SELECT</option>
+										<?php for ($i=130; $i < 250; $i++): ?>
+										<?php $height = (intval($measurement["height"])==$i) ? "selected": "" ?>
+										<option <?=$height?>><?=$i?></option>
+										<?php endfor ?>
+									</select>
+								</td>
+								<td>cm</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Bust / Chest:&nbsp;</label>                                
+								</td>
+								<td>
+									<select style="width:75px;" class="form-control user-measurement" id="uChest">
+										<option>SELECT</option>
+										<?php for ($i=20; $i < 61; $i++): ?>
+										<?php $chest = (intval($measurement["chest"])==$i) ? "selected": "" ?>
+										<option <?=$chest?>><?=$i?></option>
+										<?php endfor ?>
+									</select>
+								</td>
+								<td>inch</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Waist:&nbsp;</label>                                
+								</td>
+								<td>
+									<select style="width:75px;" class="form-control user-measurement" id="uWaist">
+										<option>SELECT</option>
+										<?php for ($i=10; $i < 61; $i++): ?>
+										<?php $waist = (intval($measurement["waist"])==$i) ? "selected": "" ?>
+										<option <?=$waist?>><?=$i?></option>
+										<?php endfor ?>
+									</select>
+								</td>
+								<td>inch</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Hips:&nbsp;</label>                                
+								</td>
+								<td>
+									<select style="width:75px;" class="form-control user-measurement" id="uHips">
+										<option>SELECT</option>
+										<?php for ($i=20; $i < 61; $i++): ?>
+										<?php $hips = (intval($measurement["hips"])==$i) ? "selected": "" ?>
+										<option <?=$hips?>><?=$i?></option>
+										<?php endfor ?>
+									</select>
+								</td>
+								<td>inch</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#questionaire">Next</button>
+				<button id="mSubmitBtn" class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#questionaire">Next</button>
 			</div>
 		</div>
 	</div>
@@ -110,7 +114,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Step 3: Tell us what you want..</h4>
+				<h4 class="modal-title">Step 2: Tell us what you want..</h4>
 			</div>
 			<div class="modal-body">
 				<?php 
@@ -135,8 +139,8 @@
 							</form>
 						</td>
 						<td>
-              <textarea class="form-control" placeholder="" rows="3"></textarea>						
-            </td>						
+							<textarea class="form-control" placeholder="" rows="3"></textarea>						
+						</td>
 					</tr>
 					<?php endforeach ?>
 				</table>
@@ -144,14 +148,14 @@
 				<textarea class="form-control" placeholder="Let us know here!" rows="5"></textarea>
 				</br>
 				<!--
-				<div class="form-group">        
-					<label>How much would you pay for a dress?</label>
-					</br>
-					</br>
-					</br>
-					<b>RM 10&nbsp;</b><input id="ex15" type="text" data-slider-value="50" data-slider-tooltip="always"/><b>&nbsp;No Specific Budget</b>
-				</div>
-				-->
+					<div class="form-group">        
+						<label>How much would you pay for a dress?</label>
+						</br>
+						</br>
+						</br>
+						<b>RM 10&nbsp;</b><input id="ex15" type="text" data-slider-value="50" data-slider-tooltip="always"/><b>&nbsp;No Specific Budget</b>
+					</div>
+					-->
 			</div>
 			<div class="modal-footer">
 				<div style="float:left">

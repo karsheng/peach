@@ -92,7 +92,7 @@
                 </div>                
              </div>
              <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-7 col-sm-7 col-xs-12">
                     <div class='comment-section'>
                         <strong><?=$rec['con_name']?></strong>:</br> <?=$rec['comments']?>
                     </div>

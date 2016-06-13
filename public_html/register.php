@@ -66,6 +66,7 @@
                 mysqli_query($link, $query);
     
                 $_SESSION['id'] = mysqli_insert_id($link);
+                $_SESSION["username"] = $username;
     
                 if ($_POST['stayLoggedIn'] == '1') 
                 {

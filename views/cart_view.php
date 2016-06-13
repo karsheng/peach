@@ -7,26 +7,24 @@
         $sizes = ['XS','S','M','L','XL'];
     ?>
     <div class='modal-header'>
+        <?php foreach ($items as $item): ?>
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-7">
-                <?php foreach ($items as $item): ?>
                 <div class="invoice-item">
                 <p><strong><?=$item['img_name']?></strong> <span id="size-id-<?=$item['rec_id']?>">(<?=$item['sd_size']?>)</span></p>
                 <p><i><?=$item['brand']?></i></p>
                 <p><?=$item['cart']?>  x <?=$item['price']?></p>
                 </div>
-                <?php endforeach ?>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-5" style="text-align:right;">
-                <?php foreach ($items as $item): ?>
                 <div class="invoice-item">
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>RM <?=number_format($item['cart']*$item['price'], 2, '.', '')?></p>
                 </div>
-                <?php endforeach ?>
             </div>
         </div>
+        <?php endforeach ?>
         </br>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:right;">

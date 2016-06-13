@@ -43,8 +43,31 @@
             
         }
     }
-  
+    $_SESSION['cart'] = $itemInCart;
+    $query2 = "SELECT * FROM users WHERE id = ".$user_id;
+    $results2 = mysqli_query($link, $query2);
+    $_SESSION['measurement'] = [];
+    
+    
+    if (mysqli_num_rows($results2) > 0)
+    {
+        
+        while($row = mysqli_fetch_array($results2))
+        {
+            
+            $_SESSION['measurement'] = [
+                'height'    => $row['height'],
+                'chest'     => $row['chest'],
+                'waist'     => $row['waist'],
+                'hips'      => $row['hips']
+                
+            ]; 
+            
+            
+        }
+    }
+    
         // render profile
-    render("profile.php", ["recs" => $recs,"itemInCart" => $itemInCart , "title" => "Profile"]);    
+    render("profile.php", ["recs" => $recs, "measurement" => $_SESSION['measurement'] ,"itemInCart" => $_SESSION['cart'] , "title" => "Profile"]);    
 
 ?>

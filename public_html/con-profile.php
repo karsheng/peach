@@ -22,6 +22,6 @@
     }
   
         // render profile
-    render("consultant/profile_view.php", ["con" => $con,"title" => $con['con_name']]);    
+    render("consultant/profile_view.php", ["measurement" => $_SESSION['measurement'], "con" => $con,"itemInCart" => $_SESSION['cart'], "title" => $con['con_name']]);    
 
 ?>

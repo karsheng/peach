@@ -91,6 +91,9 @@
 
             // render view (between header and footer)
             require("../views/header.php");
+            if (!empty($_SESSION["id"])){
+            require("../views/upload_form.php");
+            }
             require("../views/{$view}");
             require("../views/footer.php");
             exit;

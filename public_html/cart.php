@@ -36,11 +36,12 @@
             
         }
     }
+    $_SESSION['cart'] = $itemInCart;
     $subTotal = number_format($subTotal,2,'.','');
     $shipping = "FREE";
     $total = $subTotal;
   
         // render profile
-    render("cart_view.php", ["items" => $items, "shipping" => $shipping, "total" => $total, "subTotal" => $subTotal ,"itemInCart" => $itemInCart , "title" => "Profile"]);    
+    render("cart_view.php", ["measurement" => $_SESSION['measurement'],"items" => $items, "shipping" => $shipping, "total" => $total, "subTotal" => $subTotal ,"itemInCart" => $itemInCart , "title" => "Profile"]);    
 
 ?>

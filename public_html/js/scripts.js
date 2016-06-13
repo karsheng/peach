@@ -11,6 +11,7 @@ $(document).ready(function(){
     var itemInCart = parseInt(document.getElementById('item-in-cart').textContent);    
     var item = []; //number of items in the cart
     var noOfRecs = $('.modal-body').length;
+    var userMeasurementChange = false;
 
     for (var i = 0; i < noOfRecs; i++) {
         
@@ -18,7 +19,7 @@ $(document).ready(function(){
     
     }
 
-//show recommendations modal    
+    //show recommendations modal    
     $(".btn-view").click(function(){
         
         
@@ -197,6 +198,47 @@ $(document).ready(function(){
         
     });
     
+    
+    //update user measurement if change occurs
+    $('#m-table').find('.user-measurement').on('change', function (e) {
+        userMeasurementChange = true;
+
+    });
+    $('#mSubmitBtn').on('click', function(){
+        
+        if (userMeasurementChange === true) {
+            
+            var height = $('#uHeight').val();
+            var chest = $('#uChest').val();
+            var waist = $('#uWaist').val();
+            var hips = $('#uHips').val();
+            
+            var parameters = {
+                
+                height: height,
+                chest: chest,
+                waist: waist,
+                hips: hips
+            };            
+            
+            $.getJSON("update_measurements.php", parameters)
+            .done(function(){
+    
+                console.log("successfully updated user measurements");
+                userMeasurementChange = false;
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                // log error to browser's console
+                console.log(errorThrown.toString());
+                
+            });         
+                        
+            
+        }
+        
+    });
+    
+    
     $(".remove-from-cart").on('click', function(){
         
         updateQty($(this),0);
@@ -265,7 +307,8 @@ $(document).ready(function(){
             .done(function(){
     
                 itemInCart += value;    
-                document.getElementById('item-in-cart').textContent = itemInCart;    
+                document.getElementById('item-in-cart').textContent = itemInCart;
+                
                 
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
