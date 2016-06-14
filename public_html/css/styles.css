@@ -218,6 +218,11 @@ left:0;
 right:0;
 margin:auto;
 }
+.center-content{
+     /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+}
 .modal-content{
 -webkit-box-shadow: none;
 -moz-box-shadow: none;
@@ -407,4 +412,10 @@ height:100px;
 .modal {
     /* ... */
     overflow-y: scroll;
+}
+
+.insta_comment{
+    background-color: white;
+    min-height:100px;
+    
 }

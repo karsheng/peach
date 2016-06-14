@@ -27,7 +27,7 @@
     // require authentication for all pages except /login.php, /logout.php, and /register.php
     if (!in_array($_SERVER["PHP_SELF"], ["/public_html/login.php", "/public_html/logout.php", "/public_html/register.php", "/public_html/consultant/login.php"]))
     {
-        if (empty($_SESSION["id"]))
+        if (empty($_SESSION["id"]) && empty($_SESSION["con_id"]))
         {
             redirect("/public_html/login.php");
         }

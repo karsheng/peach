@@ -58,6 +58,26 @@
         // destroy session
         session_destroy();
     }
+    
+    function conLogout()
+    {
+        // unset any session variables
+        $_SESSION = [];
+
+        // expire cookie
+        if (!empty($_COOKIE[session_name()]))
+        {
+            echo("not empty");
+            setcookie(session_name(), "", time() - 60*60*24*365);
+        }
+        else
+        {
+            echo("empty");
+        }
+
+        // destroy session
+        session_destroy();
+    }
 
     /**
      * Redirects user to location, which can be a URL or

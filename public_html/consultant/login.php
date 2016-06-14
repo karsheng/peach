@@ -37,7 +37,7 @@
             if (password_verify($_POST["password"], $row["hash"]))
             {
                 // remember that user's now logged in by storing user's ID in session
-                $_SESSION["id"] = $row["id"];
+                $_SESSION["con_id"] = $row["id"];
                 $_SESSION["con_name"] = $row["con_name"];
                 
                 if ($_POST['stayLoggedIn'] == '1') 

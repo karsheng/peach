@@ -4,7 +4,7 @@
     require("../../includes/config.php"); 
     
     // query database for user
-    $con_id = mysqli_real_escape_string($link, $_SESSION['id']);
+    $con_id = mysqli_real_escape_string($link, $_SESSION['con_id']);
     $query = "SELECT * FROM users WHERE request = 1";
     $results = mysqli_query($link, $query);
     $users = [];

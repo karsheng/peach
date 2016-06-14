@@ -7,7 +7,7 @@
 // var item - created in profile.php to count number of items added to cart.
 
 $(document).ready(function(){
-
+    
     var itemInCart = parseInt(document.getElementById('item-in-cart').textContent);    
     var item = []; //number of items in the cart
     var noOfRecs = $('.modal-body').length;

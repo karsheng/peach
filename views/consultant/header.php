@@ -9,6 +9,7 @@
       <!-- http://getbootstrap.com/ -->
       <link href="../css/bootstrap.min.css" rel="stylesheet"/>
       <link href="../css/styles.css" rel="stylesheet"/>
+      <link href="../css/conStyles.css" rel="stylesheet"/>
 
       <?php if (isset($title)): ?>
       <title>Peach: <?= htmlspecialchars($title) ?></title>
@@ -27,12 +28,12 @@
       <script src="../js/bootstrap-slider.min.js"></script>
       <link href="../css/bootstrap-slider.min.css" rel="stylesheet"/>
       
-      <script src="../js/scripts.js"></script>
+      <script src="../js/conScripts.js"></script>
       
    </head>
    <body>
       
-      <?php if (!empty($_SESSION["id"])): ?>
+      <?php if (!empty($_SESSION["con_id"])): ?>
          <nav class='navbar navbar-inverse navbar-fixed-top'>
             <div id='top' class='container'>
                <div class='navbar-header'>
@@ -49,7 +50,7 @@
                      <ul id="navpills" class="nav nav-pills">
                      <li><a href="/public_html/consultant/"><span id='favourite' class='glyphicon glyphicon-home'></span></a></li>
                      <li><a href="/public_html/consultant/profile.php"><span id='favourite' class='glyphicon glyphicon-user'></span></a></li>
-                     <li><a href="logout.php"><span id='favourite' class='glyphicon glyphicon-log-out'></span></a></li>
+                     <li><a href="/public_html/consultant/logout.php"><span id='favourite' class='glyphicon glyphicon-log-out'></span></a></li>
                      </ul>
                   </div>
                </div>
