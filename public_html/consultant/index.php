@@ -17,8 +17,15 @@
             $users[] = [
                 
                 'user_id'  => $row['id'],
-                'request'    => $row['request'],
                 'username'    => $row['username'],
+                'height'    => $row['height'],
+                'chest'    => $row['chest'],
+                'waist'    => $row['waist'],
+                'hips'    => $row['hips'],
+                'needs' => $row['needs'],
+                'will_to_pay' => $row['will_to_pay'],
+                'details' => $row['details'],
+                'special_request'   =>  $row['special_request']
             ]; 
         }
     }

@@ -350,6 +350,7 @@ margin-right:auto;
 z-index:1;
 border:none;
 }
+
 #m-table td{
 padding:5px;
 }
@@ -418,4 +419,54 @@ height:100px;
     background-color: white;
     min-height:100px;
     
+}
+
+.culd {
+position:relative;
+width:240px;
+height:240px;
+overflow:hidden; 
+background:#f3f3f3; 
+border:2px dashed #e8e8e8;
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+.culd:hover {
+position:relative;
+width:240px;
+height:240px;
+opacity:0.7;
+background:#f3f3f3; 
+border:3px dashed #428bca;
+}
+#cfilePhoto{
+display: block;
+position:relative;
+width:240px;
+height:240px;
+margin-left:auto;
+margin-right:auto;
+top:-240px;
+bottom:0;
+z-index:2;
+opacity:0;
+cursor:pointer;
+}
+
+.culd-img{
+position:relative;
+max-width:240px;
+max-height:240px;
+height:100%;
+width:auto;
+display:block;
+margin-left:auto;
+margin-right:auto;
+z-index:1;
+border:none;
+}
+
+.user-modal:hover{
+    border:0.5px solid #337ab7;
 }

@@ -34,25 +34,25 @@
         }
         
         // Check file size
-        if ($_FILES["userprofile_picture"]["size"] > 10000000 || $_FILES["userprofile_picture2"]["size"] > 500000) {
-            apologize("Sorry, your file is too large.");
+        if ($_FILES["userprofile_picture"]["size"] > 10000000 || $_FILES["userprofile_picture2"]["size"] > 10000000) {
+            echo("Sorry, your file is too large.");
             $uploadOk = 0;
         }
         
         // Allow certain file formats
         if($imageFileType1 != "jpg" && $imageFileType1 != "png" && $imageFileType1 != "jpeg"
         && $imageFileType1 != "gif" ) {
-            apologize("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+            echo("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
             $uploadOk = 0;
         }
         if($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg"
         && $imageFileType2 != "gif" ) {
-            apologize("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+            echo("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
             $uploadOk = 0;
         }        
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            apologize("Sorry, your file was not uploaded.");
+            echo("Sorry, your file was not uploaded.");
         // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["userprofile_picture"]["tmp_name"],$target_dir.$_SESSION["username"]."-1.jpg" )) {
@@ -62,10 +62,10 @@
                 }
                 else
                 {
-                    apologize("Sorry, there was an error uploading your file.");
+                    echo("Sorry, there was an error uploading your file.");
                 }
             } else {
-                apologize("Sorry, there was an error uploading your file.");
+                echo("Sorry, there was an error uploading your file.");
             }
 }
         

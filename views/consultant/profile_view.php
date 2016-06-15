@@ -1,42 +1,48 @@
 <!--consultant-->
 <div class="center-content" style="max-width:640px;">
-<div class="row" style="max-width:640px;">
-    <div class="modal-dialog" style="width:auto;">
+<div class="row">
+    <div class="col-md-12">
+    <div class="modal-dialog modal-lg" style="max-width:640px;">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row">
-                    <div style="min-height:150px;" class="col-md-3 col-sm-3 col-xs-3">
+                    <div style="min-height:150px;" class="col-md-4 col-sm-4 col-xs-4">
                         
-                        <a role='button'><img id="conPhoto" style='max-width:60%; height:auto; width:auto' class="img-circle centered" src="<?=$con['img']?>"/></a>
-                        
+                        <a role='button' data-toggle="modal" data-target="#upload-picture"><img id="conPhoto" style='max-width:50%; height:auto; width:auto' class="img-circle centered" src="<?=$con['img']?>"/></a>
                     </div>
-                    <div style="min-height:150px;" class="col-md-9 col-sm-9 col-xs-9">
+                    <div style="min-height:150px;" class="col-md-8 col-sm-8 col-xs-8">
                         <h3><?=$con["con_name"]?></h3>
                         <p><?=$con["email"]?></p>
-                        <p style="text-align:justify;"><?=$con["profile"]?></p>
+                        <p id="cProfileDesc" style="text-align:justify;"><?=$con["profile"]?></p>
                         </br>
-                        <p><button class="btn btn-default">Edit Profile</button></p>
+                        <p><button data-toggle="modal" data-target="#cEditProfile" class="btn btn-default">Edit Profile</button></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+<?php 
+    require('upload_form.php');
+    require('profile_form.php');
+?>
 
 <?php if(isset($result)): ?>
 <div id="cInstagram">
     <h3><?=$con['con_name']?>'s Instagram</h3>
     
         
-    <div class="row" style="max-width:640px;">
+    <div class="row">
+           <div class="col-md-12 col-sm-12 col-xs-12"> 
             <ul class="nav nav-tabs">
             <li style="margin-right:0; text-align:center; width:50%;" class="active">
-            <a style="margin-right:0;" data-toggle="tab" href="#tn-view" data-toggle="tab">
+            <a style="border:none; margin-right:0;" data-toggle="tab" href="#tn-view" data-toggle="tab">
                <h5><span class="glyphicon glyphicon-th"></span></h5>
             </a>
             </li>
             <li style="margin-right:0; text-align:center; width:50%;" class="">
-            <a style="margin-right:0;" data-toggle="tab" href="#list-view" data-toggle="tab">
+            <a style="border:none; margin-right:0;" data-toggle="tab" href="#list-view" data-toggle="tab">
                <h5><span class="glyphicon glyphicon-list"></span></h5>
             </a>
             </li>
@@ -90,7 +96,7 @@
             
             ?>
         </div>
-
+        </div>
     </div>
 </div>
 </div>

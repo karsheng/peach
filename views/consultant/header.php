@@ -28,6 +28,12 @@
       <script src="../js/bootstrap-slider.min.js"></script>
       <link href="../css/bootstrap-slider.min.css" rel="stylesheet"/>
       
+      <!-- http://underscorejs.org/ -->
+      <script src="../js/underscore-min.js"></script>
+      
+      <!-- https://github.com/twitter/typeahead.js/ -->
+      <script src="../js/typeahead.jquery.min.js"></script>
+      
       <script src="../js/conScripts.js"></script>
       
    </head>
@@ -45,6 +51,8 @@
                   </button>
                   <a class="navbar-brand" href="/public_html/consultant/">Peach Consultant</a>
                </div>
+               <!-- http://getbootstrap.com/css/#forms -->
+
                <div id="navbar" class="navbar-collapse collapse">
                   <div class="navbar-right">
                      <ul id="navpills" class="nav nav-pills">
