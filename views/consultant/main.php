@@ -1,27 +1,31 @@
 <!--consultant-->
 <h1>Hello <?=$_SESSION["con_name"]?></h1>
 
+<?php $counter = 0; ?>    
 <?php foreach($users as $user): ?>
     <?php
         $needs=explode(",",$user['needs']);
         $willToPay=explode("#",$user['will_to_pay']);
         $details=explode("#$%*",$user['details']);
-        
+        $counter++;
+        $divRow = ($counter%2 == 0) ? "":"<div class='row'>";
+        echo $divRow;
     ?>
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-body user-modal">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+<div class="modal-dialog" style="margin:0 auto; margin-bottom:10px; max-width:370px; display:block;">
+    <div class="modal-content user-modal" value="<?=$user["user_id"]?>">
+        <div class="modal-body" style="height:400px;">
             <div class="row">
-                <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div>
-                        <img style="display:inline; max-width:100px; width:auto; height:200px;" src="../img/<?=$user["username"]?>-1.jpg"/>
-                        <img style="display:inline; max-width:100px; height:200px;" src="../img/<?=$user["username"]?>-2.jpg">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p style="font-size:24px;"><?=$user['username']?></p>
+                    <div style="margin:0 auto; display:block; max-width:305px;">
+                    <img style="display:inline; width:150px; height:300px;" src="../img/<?=$user["username"]?>-1.jpg"/>
+                    <img style="display:inline; width:150px; height:300px;" src="../img/<?=$user["username"]?>-2.jpg">
                     </div>
                 </div>
-                <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h3><?=$user['username']?></h3>
                             <h5>
                             Looking for:
                             <i>
@@ -34,7 +38,8 @@
                             ?>
                             </i>
                             </h5>                            
-                        </div>    
+                        </div>
+                        <!--
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <p>Height: <?=$user['height']?> cm</p>
                             <p>Bust: <?=$user['chest']?> inch</p>
@@ -44,16 +49,20 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>    
+</div>        
+<?php
+    $closeDiv = ($counter%2 == 0) ? "</div>":"";
+    echo $closeDiv;
     
-    <button class="btn btn-link" name="u" type="submit" value="<?=$user["user_id"]?>"><?=$user["username"]."-".count($details)?></button>
-    
-    
+?>
 <?php endforeach ?>
-    
-    
+<?php $oddDiv = ($counter%2 == 0) ? "":"</div>"; 
+    echo $oddDiv;
+?>    

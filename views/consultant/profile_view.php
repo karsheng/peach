@@ -12,7 +12,6 @@
                     </div>
                     <div style="min-height:150px;" class="col-md-8 col-sm-8 col-xs-8">
                         <h3><?=$con["con_name"]?></h3>
-                        <p><?=$con["email"]?></p>
                         <p id="cProfileDesc" style="text-align:justify;"><?=$con["profile"]?></p>
                         </br>
                         <p><button data-toggle="modal" data-target="#cEditProfile" class="btn btn-default">Edit Profile</button></p>

@@ -468,5 +468,5 @@ border:none;
 }
 
 .user-modal:hover{
-    border:0.5px solid #337ab7;
+    border: 1px dashed black;
 }

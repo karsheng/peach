@@ -6,7 +6,10 @@
 $(document).ready(function(){
 
     var imageLoader = document.getElementById('cfilePhoto');
-    imageLoader.addEventListener('change', handleImage, false);
+    if(typeof(imageLoader) != "undefined" && imageLoader !== null) {
+        imageLoader.addEventListener('change', handleImage, false);
+    }
+    
     
     function handleImage(e) {
         var reader = new FileReader();
@@ -41,39 +44,15 @@ $(document).ready(function(){
         });
     }));
     
-    /*
-    $('#cProfileUpdateForm').on('submit',(function(e) {
-        
-        var profile = $('#description').val();
-        var parameters = {
-                
-            
-            profile: profile
-        };
-            
-        $.getJSON("update_profile.php", parameters)
-        .done(function(){
-            
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            // log error to browser's console
-            console.log(errorThrown.toString());
-                
-        });
-            
-        
-        
-    }));    
-
-    $("#cProfileSubmitBtn").on("click", function() {
-        $("#cProfileUpdateForm").submit();
-    });
-    
-    */
     $("#cSubmitBtn").on("click", function() {
         $("#cimageUploadForm").submit();
     });
     
+    $(".user-modal").on("click", function(){
+        
+        var userID = $(this).attr('value');
+        window.location.href = "https://peach-karsheng88.c9users.io/public_html/consultant/user.php?u="+userID;
+    });
 
 });
 
