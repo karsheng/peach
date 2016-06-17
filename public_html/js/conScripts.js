@@ -54,9 +54,15 @@ $(document).ready(function(){
         window.location.href = "https://peach-karsheng88.c9users.io/public_html/consultant/user.php?u="+userID;
     });
 
+    $("#dress-cat").on("click",".dress-cat-btn", function(){
+        
+        var imgID = $(this).attr('value');
+        
+    });    
+
 });
 
-
+    
 
 
 

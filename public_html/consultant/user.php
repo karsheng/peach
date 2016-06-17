@@ -29,6 +29,7 @@
                 
             }
         }
+        
         conrender("user_profile.php", ["user" => $user, "title" => $user['username']]);
     }
 

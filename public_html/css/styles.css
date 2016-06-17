@@ -388,6 +388,10 @@ height:100px;
     .navbar-toggle{
         margin-right:25px;
     }
+    .m-container{
+        padding-left:15px;
+        padding-right:15px;
+    }
 
 }
 
@@ -466,7 +470,19 @@ margin-right:auto;
 z-index:1;
 border:none;
 }
+.stuck {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  padding-right: 20px; 
+  z-index:20;
+  
+    
+}
 
-.user-modal:hover{
-    border: 1px dashed black;
+.m-container {
+    /* center contents */
+    margin-left:auto;
+    margin-right:auto;
 }
