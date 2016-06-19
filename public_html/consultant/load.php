@@ -28,7 +28,7 @@
   <div class="row">
   <?php foreach($dresses as $dress): ?>
       <div class="col-md-4 col-sm-4 col-xs-6" style="padding:0;">
-          <div class="dress-cat-btn" value="<?=$dress['dress_id']?>">
+          <div class="dress-cat-btn" value="<?=$dress['dress_id']?>" data-toggle="modal" data-target="#dressModal">
             <div style="margin-left:auto; margin-right:auto; border:1px solid #e0e0e0; max-width:250px; max-height:420px; background-color:white">
               <img style="height:100%; width:100%;" src="../dresses/<?=$dress['dress_id']?>-0.jpg"/>
             </div>

@@ -15,13 +15,13 @@
 <div class="modal-dialog" style="margin:0 auto; margin-bottom:10px; max-width:370px; display:block;">
     <div class="modal-content user-modal" value="<?=$user["user_id"]?>">
         <div class="modal-body" style="height:400px;">
+            <p style="font-size:24px;"><?=$user['username']?></p>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <p style="font-size:24px;"><?=$user['username']?></p>
-                    <div style="margin:0 auto; display:block; max-width:305px;">
-                    <img style="display:inline; width:150px; height:300px;" src="../img/<?=$user["username"]?>-1.jpg"/>
-                    <img style="display:inline; width:150px; height:300px;" src="../img/<?=$user["username"]?>-2.jpg">
-                    </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <img style="margin-left:auto; margin-right:auto; display:inline; max-width:150px; height:240px;" src="../img/<?=$user["username"]?>-1.jpg"/>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <img style="margin-left:auto; margin-right:auto; display:inline; max-width:150px; height:240px;" src="../img/<?=$user["username"]?>-2.jpg">
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">

@@ -56,25 +56,64 @@ $(document).ready(function(){
 
     $("#dress-cat").on("click",".dress-cat-btn", function(){
         
+
         var imgID = $(this).attr('value');
+        var parameters = {
+            
+            imgID : imgID
+        };
+        
+        $.getJSON("get_dress.php", parameters)
+        .done(function(data, textStatus, jqXHR){
+            
+            
+            for(var i = 0; i < 5; i++){
+                $('#tn-'+i).attr('src','../dresses/'+data['img_id']+"-"+i+".jpg");
+                $('#item-'+i).attr('src','../dresses/'+data['img_id']+"-"+i+".jpg");
+                
+            }
+            $('#brand-text').html(data['brand']);
+            $('#dress-name').html(data['img_name']);
+            $('#dress-price').html("RM "+ data['price']);
+            $('#color').html(data["color"]);
+            $('#composition').html(data["composition"]);
+            
+            var cl = "";
+            var xs= "";
+            var s= "";
+            var m= "";
+            var l= "";
+            var xl= "";
+            
+            for(var j=0; j<data['care_label'].length;j++){
+                cl += data['care_label'][j]+"</br>";
+            }
+            for(var k=0; k<data['xs'].length;k++){
+                xs += "<td>"+data['xs'][k]+"</td>";
+                s += "<td>"+data['s'][k]+"</td>";
+                m += "<td>"+data['m'][k]+"</td>";
+                l += "<td>"+data['l'][k]+"</td>";
+                xl += "<td>"+data['xl'][k]+"</td>";
+            }
+            
+            
+            $('#care-label-text').html(cl);
+            $('#size-xs').html(xs);
+            $('#size-s').html(s);
+            $('#size-m').html(m);
+            $('#size-l').html(l);
+            $('#size-xl').html(xl);
+            
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // log error to browser's console
+            console.log(errorThrown.toString());
+            
+        });          
         
     });    
 
 });
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
