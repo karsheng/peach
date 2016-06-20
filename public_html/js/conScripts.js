@@ -3,8 +3,10 @@
  *
  * consultant JavaScript, if any.
  */
-$(document).ready(function(){
+ 
+ //currently viewing userID.
 
+$(document).ready(function(){
     var imageLoader = document.getElementById('cfilePhoto');
     if(typeof(imageLoader) != "undefined" && imageLoader !== null) {
         imageLoader.addEventListener('change', handleImage, false);
@@ -55,12 +57,85 @@ $(document).ready(function(){
     });
 
     $("#dress-cat").on("click",".dress-cat-btn", function(){
+        getDress($(this));
+    });
+    
+    $("#savedRecs").on("click",".dress-cat-btn", function(){
+        getDress($(this));
+    });
+    
+    $("#saveBtn").on("click", function(){
         
+        var imgID = $("#car").attr("value"); 
+        var parameters = {
+            userID: $("#dressModal").attr("value"),
+            comments: $("#comments").val(),
+            recSize: $("#recSize").val(),
+            imgID:imgID 
+        };
+        
+        $.getJSON("save_recs.php", parameters)
+        .done(function(data, textStatus, jqXHR){
+            
+            //var contentString = "<div id='rec-"+imgID+"' style='display:inline-block;' class='dress-cat-btn' value='"+imgID+"'><img style='padding:5px; width:70px; max-height:113px;' src='../dresses/"+imgID+"-0.jpg'/></div>";
+            
+            //$("#savedRecs").append(contentString);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        // log error to browser's console
+        console.log(errorThrown.toString());
+        
+        });          
+        
+    });
+    
+    $("#removeBtn").on("click", function(){
+        
+        var savedID = $(this).attr('value');
+        var parameters = {
+            savedID: savedID
+        };
+        
+        $.getJSON("remove_saved.php", parameters)
+        .done(function(data, textStatus, jqXHR){
+            
 
-        var imgID = $(this).attr('value');
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        // log error to browser's console
+        console.log(errorThrown.toString());
+        
+        });         
+    });    
+    
+
+    function getDress(e){
+        
+        for(var i = 0; i < 5; i++){
+            $('#tn-'+i).attr('src',"");
+            $('#item-'+i).attr('src',"");
+        }
+        $('#brand-text').html("");
+        $('#dress-name').html("");
+        $('#dress-price').html("");
+        $('#color').html("");
+        $('#composition').html("");
+        $('#care-label-text').html("");
+        $('#size-xs').html("");
+        $('#size-s').html("");
+        $('#size-m').html("");
+        $('#size-l').html("");
+        $('#size-xl').html("");
+        $("#comments").val("");
+        $('#recSize').val('XS');
+        $('#removeBtn').css('visibility','hidden');
+
+        
+        var imgID = e.attr('value');
         var parameters = {
             
-            imgID : imgID
+            imgID : imgID,
+            userID : $("#dressModal").attr("value")
         };
         
         $.getJSON("get_dress.php", parameters)
@@ -72,6 +147,7 @@ $(document).ready(function(){
                 $('#item-'+i).attr('src','../dresses/'+data['img_id']+"-"+i+".jpg");
                 
             }
+            $('#car').attr('value',imgID);
             $('#brand-text').html(data['brand']);
             $('#dress-name').html(data['img_name']);
             $('#dress-price').html("RM "+ data['price']);
@@ -104,14 +180,30 @@ $(document).ready(function(){
             $('#size-l').html(l);
             $('#size-xl').html(xl);
             
+            $.getJSON("get_saved_recs.php", parameters)
+            .done(function(data, textStatus, jqXHR){
+                if(data['found'] == 1) {
+                    $("#comments").val(data['comments']);
+                    $('#recSize').val(data['rec_size']);
+                    $('#removeBtn').css('visibility','visible');
+                    $('#removeBtn').attr('value',data['saved_id']);
+                }
+                //$('#removeBtn').css('visibility','visible');        
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+            // log error to browser's console
+            console.log(errorThrown.toString());
+            
+            });        
+            
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
             // log error to browser's console
             console.log(errorThrown.toString());
             
-        });          
+        });        
         
-    });    
+    }
 
 });
 

@@ -18,19 +18,40 @@
             while($row = mysqli_fetch_array($results))
             {
                 $user = [
-                    
+                    'user_id'  => $row['id'],
                     'username'    => $row['username'],
                     'height'    => $row['height'],
                     'chest'    => $row['chest'],
                     'waist'    => $row['waist'],
-                    'hips'    => $row['hips']
+                    'hips'    => $row['hips'],
+                    'needs' => explode(",",$row['needs']),
+                    'will_to_pay' => explode("#",$row['will_to_pay']),
+                    'details' => explode("#$%*",$row['details']),
+                    'special_request'   =>  $row['special_request']
                 ]; 
                 
                 
             }
         }
         
-        conrender("user_profile.php", ["user" => $user, "title" => $user['username']]);
+        $query2 = "SELECT img_id FROM saved_recs WHERE con_id = ".$_SESSION['con_id']." AND user_id = ".$user_id;
+        $results2 = mysqli_query($link, $query2);
+        $saved_recs = [];
+        
+        if (mysqli_num_rows($results2) > 0)
+        {
+            while($row = mysqli_fetch_array($results2))
+            {
+                $saved_recs [] = [
+                    'img_id'    =>  $row['img_id']
+                    
+                ]; 
+                
+                
+            }
+        }
+        
+        conrender("user_profile.php", ["saved_recs" => $saved_recs, "user" => $user, "title" => $user['username']]);
     }
 
     // else if user reached page via POST (as by submitting a form via POST)

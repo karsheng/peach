@@ -1,12 +1,57 @@
 <!--consultant-->
 <div class="m-container">
-<h1>User Profile</h1>
+</br>
+<div class="row" style="background-color:white;">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div style="max-width:250px; max-height:420px; margin:auto;">
+            <img style="display:block; margin-left:auto; margin-right:auto; max-width:250px; max-height:420px;" src="../img/<?=$user['username']?>-1.jpg"/>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div style="max-width:250px; max-height:420px; margin:auto;">
+            <img style="display:block; margin-left:auto; margin-right:auto; max-width:250px; max-height:420px;" src="../img/<?=$user['username']?>-2.jpg"/>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <div style="max-width:250px; max-height:420px; margin:auto;">
+            <h3><?=$user['username']?></h3>
+            <p>Height:<strong><?=$user['height']?></strong> cm</p>
+            <p>Chest:<strong><?=$user['chest']?></strong> inch</p>
+            <p>Waist:<strong><?=$user['waist']?></strong> inch</p>
+            <p>Hips:<strong><?=$user['hips']?></strong> inch</p>
+            </br>
+            </br>
+            <p>Looking for:
+            <?php foreach($user['needs'] as $need): ?>
+            <strong><?=$need?> </strong>
+            <?php endforeach ?>
+            </p>
+            
+        </div>
+    </div>    
 
+</div>
 <div class="sticky-modal">
     <div class='modal-dialog'>
         <div class='modal-content'>
-            <div class='modal-body'>
-                Something sticky
+            <div class='modal-body' style="padding:5px;">
+                <?php if (empty($saved_recs)): ?>
+                No saved items yet.
+                <?php else: ?>
+                    <h5 style="padding-left:5px;">Saved items:</h5>
+                    <div id="savedRecs" data-toggle="modal" data-target="#dressModal">
+                    <?php foreach($saved_recs as $saved_rec): ?>
+                        <div id="rec-<?=$saved_rec['img_id']?>" style="display:inline-block;" class="dress-cat-btn" value="<?=$saved_rec['img_id']?>">
+                        <img style="padding:5px; width:70px; max-height:113px;" src="../dresses/<?=$saved_rec['img_id']?>-0.jpg" alt="" />
+                        </div>
+                    <?php endforeach ?>
+                    </div>
+                    <div class="modal-footer">
+                        <a role='button' class='btn btn-success'>
+                            Push
+                        </a> 
+                    </div>
+                <?php endif ?>
             </div>
         </div>
     </div>
@@ -19,17 +64,6 @@
     </form>    
     -->
 </div>
-
-
-<ul>
-    <li><img style="height:200px; width:auto;" src="../img/<?=$user['username']?>-1.jpg" /></li>
-    <li><img style="height:200px; width:auto;" src="../img/<?=$user['username']?>-2.jpg" /></li>
-    <li><?=$user['username']?></li>
-    <li><?=$user['height']?></li>
-    <li><?=$user['chest']?></li>
-    <li><?=$user['waist']?></li>
-    <li><?=$user['hips']?></li>
-</ul>
 
 <div id="dress-cat" class="infinite-container waypoint">
 
@@ -44,18 +78,24 @@
       var infinite = new Waypoint.Infinite({
         element: $('.infinite-container')[0]
       });
+      /*
       var sticky = new Waypoint.Sticky({
         element: $('.sticky-modal')[0]
-      });      
+      });
+      */
     </script>
 </footer>
 
 
     
 </div>
-<div id='dressModal' class="modal fade in" role="dialog">
+<div id='dressModal' class="modal fade in" role="dialog" value="<?=$user["user_id"]?>">
     <div class="modal-dialog modal-lg">
        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Recommend</h4>
+        </div>
           <div class="modal-body">
              <div class="row">
                 <div class="col-md-1 col-sm-1 hidden-xs container">
@@ -67,7 +107,7 @@
                     </ul>
                 </div>                 
                 <div class="col-md-6 col-sm-6 col-xs-12" style="margin-left:auto; margin-right:auto;">
-                   <div id="car" class="carousel" data-interval="false" data-ride="carousel">
+                   <div id="car" class="carousel" data-interval="false" data-ride="carousel" value="">
                       <div class="carousel-inner" role="listbox">
                         <ol class="carousel-indicators">
                             <?php for ($x = 0; $x < 5; $x++): ?>
@@ -88,9 +128,10 @@
                     <h5 id='dress-name' class='text-capitalize'></h5>
                     <h5><i id="dress-price"></i></h5>
                     </br>
+                    </br>
                         <div class="form-group">
                                 <label for="sd-size-<?=$counter?>">Recommend Size:</label>                                
-                                <select style="width:75px;" class="form-control" name="item-no">
+                                <select id='recSize' style="width:75px;" class="form-control" name="item-no">
                                     <option>XS</option>
                                     <option>S</option>
                                     <option>M</option>
@@ -99,37 +140,33 @@
                                 </select>
                         </div> 
                         </br>
-                    <div>
-                    <a role='button' class="btn btn-success cart add-to-cart" name='item-no'>
-                    <span class="glyphicon glyphicon-shopping-cart"></span>  Recommend
-                    </a>
+                        </br>
+                        </br>
+                    <div class='comment-section'>
+                        <label>Comment:</label>
+                        <textarea id="comments" class='form-control' rows="7" placeholder="Tell customers why you recommend this item."></textarea>
                     </div>
                 </div>                
              </div>
              <div class="row">
-                <div class="col-md-7 col-sm-7 col-xs-12">
-                    <div class='comment-section'>
-                        <strong>comment</strong>:</br>
-                    </div>
-                </div>
                 <div class="col-xs-12">
-                   <div id="tab-<?=$counter?>" class="">
+                   <div id="tab" class="">
                       <ul class="nav nav-tabs small">
                          <li class="active">
                             <a data-toggle="tab" href="#tab-0" data-toggle="tab">
-                               <h5>Details</h5>
+                               <h5>Size Details</h5>
                             </a>
                          </li>
                          <li class="">
-                            <a data-toggle="tab" href="#tab-1" data-toggle="tab">
-                               <h5>Size Details</h5>
+                             <a data-toggle="tab" href="#tab-1" data-toggle="tab">
+                               <h5>Details</h5>
                             </a>
                          </li>
                       </ul>
                  
                       </div>
                       <div class="tab-content">
-                         <div class="tab-pane active" id="tab-0">
+                         <div class="tab-pane" id="tab-1">
                             <table class='details-table'>
                                 <tbody>
                                     <tr>
@@ -149,7 +186,7 @@
                             </table>
                         </div>
                         
-                         <div class="tab-pane " id="tab-1">
+                         <div class="tab-pane active" id="tab-0">
                             <table class='sizes-table'>
                                 <thead>
                                     <tr>
@@ -185,6 +222,14 @@
                       </div>  
                 </div>
              </div>
+          </div>
+          <div class="modal-footer">
+            <a id='removeBtn' style="float:left; visibility:hidden" role='button' class="btn btn-danger" name='item-no' value="" data-dismiss="modal">
+            Remove
+            </a>
+            <a id='saveBtn' role='button' class="btn btn-success" name='item-no'>
+            Save
+            </a>
           </div>
        </div>
     </div>

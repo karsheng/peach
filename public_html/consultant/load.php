@@ -43,4 +43,4 @@
   </div>
 </div>
 
-<a class="infinite-more-link" href="load.php">more</a>
+<a style='visibility:hidden;' class="infinite-more-link" href="load.php">more</a>
