@@ -106,7 +106,28 @@ $(document).ready(function(){
         console.log(errorThrown.toString());
         
         });         
-    });    
+    });
+    
+    $("#pushBtn").on("click", function(){
+       
+        var userID = $("#dressModal").attr("value");
+        var parameters = {
+        userID: userID
+        };
+        
+        $.getJSON("push.php", parameters)
+        .done(function(data, textStatus, jqXHR){
+            console.log('pushed');
+            location.reload();
+        
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        // log error to browser's console
+        console.log(errorThrown.toString());
+        
+        });        
+        
+    });
     
 
     function getDress(e){

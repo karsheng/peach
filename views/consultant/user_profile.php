@@ -2,14 +2,14 @@
 <div class="m-container">
 </br>
 <div class="row" style="background-color:white;">
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <div style="max-width:250px; max-height:420px; margin:auto;">
-            <img style="display:block; margin-left:auto; margin-right:auto; max-width:250px; max-height:420px;" src="../img/<?=$user['username']?>-1.jpg"/>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+        <div style="max-width:200px; max-height:320px; margin:auto;">
+            <img style="display:block; margin-left:auto; margin-right:auto; max-width:200px; max-height:320px;" src="../img/<?=$user['username']?>-1.jpg"/>
         </div>
     </div>
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <div style="max-width:250px; max-height:420px; margin:auto;">
-            <img style="display:block; margin-left:auto; margin-right:auto; max-width:250px; max-height:420px;" src="../img/<?=$user['username']?>-2.jpg"/>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+        <div style="max-width:200px; max-height:320px; margin:auto;">
+            <img style="display:block; margin-left:auto; margin-right:auto; max-width:200px; max-height:320px;" src="../img/<?=$user['username']?>-2.jpg"/>
         </div>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -21,17 +21,51 @@
             <p>Hips:<strong><?=$user['hips']?></strong> inch</p>
             </br>
             </br>
-            <p>Looking for:
-            <?php foreach($user['needs'] as $need): ?>
-            <strong><?=$need?> </strong>
-            <?php endforeach ?>
-            </p>
-            
         </div>
     </div>    
 
 </div>
-<div class="sticky-modal">
+</br>
+<div class="row" style="background-color:white;">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div>
+            </br>
+            <table class="user-needs">
+                <tbody>
+                    <tr>
+                        <th>Looking For</th>
+                        <th>Willing to Pay</th>
+                        <th>Details</th>
+                    </tr>
+                    <?php 
+                    
+                        for($i = 0; $i < count($user['needs']) - 1; $i++)
+                        {
+                            $cs = "<tr>";
+                            $cs .= "<td class='t-needs'>".$user['needs'][$i]."</td>"; 
+                            $cs .= "<td class='t-will'>".number_format($user['will_to_pay'][$i], 2, '.', '')."</td>";
+                            $cs .= "<td class='t-details'><p>".$user['details'][$i]."</p></td>"; 
+                            $cs .= "</tr>";
+                            echo $cs;
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div style="margin:auto;">
+            </br>
+            <h4>Special request:</h4>
+            <p><?=$user['special_request']?></p>
+            </br>
+            </br>
+        </div>
+    </div>     
+
+</div>
+
+<div class="sticky-modal" style="margin-top:20px;">
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-body' style="padding:5px;">
@@ -47,7 +81,7 @@
                     <?php endforeach ?>
                     </div>
                     <div class="modal-footer">
-                        <a role='button' class='btn btn-success'>
+                        <a id='pushBtn' role='button' class='btn btn-success'>
                             Push
                         </a> 
                     </div>

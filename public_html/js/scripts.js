@@ -265,9 +265,19 @@ $(document).ready(function(){
             
         } 
 
-    });     
+    });
+    
+    $("#requestBtn").click(function(){
+        $(this).toggleClass("btn-success");
+        if($(this).html()==="OFF"){
+            $(this).html("ON")    
+        }else{
+            $(this).html("OFF")    
+        }
+        
+    });    
    
-
+   
     function favourite(fav){
             
         if (fav.hasClass("user-fav")){

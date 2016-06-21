@@ -34,7 +34,7 @@
             }
         }
         
-        $query2 = "SELECT img_id FROM saved_recs WHERE con_id = ".$_SESSION['con_id']." AND user_id = ".$user_id;
+        $query2 = "SELECT * FROM saved_recs WHERE con_id = ".$_SESSION['con_id']." AND user_id = ".$user_id;
         $results2 = mysqli_query($link, $query2);
         $saved_recs = [];
         
@@ -43,6 +43,7 @@
             while($row = mysqli_fetch_array($results2))
             {
                 $saved_recs [] = [
+                    'saved_rec_id' => $row['id'],
                     'img_id'    =>  $row['img_id']
                     
                 ]; 

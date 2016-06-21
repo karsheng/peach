@@ -63,7 +63,7 @@
                                     <option>XL</option>
                                 </select>
                         </div> 
-                        <p><i>Recommended</i>: <strong>M</strong></p>
+                        <p><i>Recommended</i>: <strong><?=$rec['rec_size']?></strong></p>
                         </br>
                         <div class="form-group">
                                 <a role='button' class="btn min-btn" name="item-no-<?=$counter?>">

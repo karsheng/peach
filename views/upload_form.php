@@ -147,6 +147,14 @@
 				<label>Any special request?</label>
 				<textarea class="form-control" placeholder="Let us know here!" rows="5"></textarea>
 				</br>
+				</br>
+				<div>
+					<?php
+						$btnClass = ($measurement['request'] == '1') ? "btn-success" : "";
+						$req = ($measurement['request'] == '1') ? "ON" : "OFF";
+					?>
+					<p>Request:  <button id="requestBtn" class="btn <?=$btnClass?>"><?=$req?></button></p>
+				</div>
 				<!--
 					<div class="form-group">        
 						<label>How much would you pay for a dress?</label>
